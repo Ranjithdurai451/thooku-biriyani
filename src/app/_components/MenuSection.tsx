@@ -38,7 +38,7 @@ const MenuSection = () => {
             alt="three"
             width={355}
             height={300}
-            quality={75} // Adjust the quality to balance between size and clarity
+            quality={10} // Adjust the quality to balance between size and clarity
           />
           <Image
             className="object-cover hover:transform  mt-[25px]   rounded-lg"
@@ -46,7 +46,7 @@ const MenuSection = () => {
             alt="four"
             width={355}
             height={300}
-            quality={75} // Adjust the quality to balance between size and clarity
+            quality={10} // Adjust the quality to balance between size and clarity
           />
         </div>
         <div>
@@ -56,7 +56,7 @@ const MenuSection = () => {
             alt="three"
             width={355}
             height={300}
-            quality={75} // Adjust the quality to balance between size and clarity
+            quality={10} // Adjust the quality to balance between size and clarity
           />
           <Image
             className="object-cover hover:transform hidden sm:block  mt-[25px]  rounded-lg"
@@ -64,7 +64,7 @@ const MenuSection = () => {
             alt="four"
             width={355}
             height={300}
-            quality={75} // Adjust the quality to balance between size and clarity
+            quality={10} // Adjust the quality to balance between size and clarity
           />
         </div>
       </div>
