@@ -39,8 +39,6 @@ const MenuSection = () => {
             width={355}
             height={300}
             quality={75} // Adjust the quality to balance between size and clarity
-            placeholder="blur"
-            blurDataURL="/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
           />
           <Image
             className="object-cover hover:transform  mt-[25px]   rounded-lg"
@@ -49,8 +47,6 @@ const MenuSection = () => {
             width={355}
             height={300}
             quality={75} // Adjust the quality to balance between size and clarity
-            placeholder="blur"
-            blurDataURL="/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
           />
         </div>
         <div>
@@ -61,8 +57,6 @@ const MenuSection = () => {
             width={355}
             height={300}
             quality={75} // Adjust the quality to balance between size and clarity
-            placeholder="blur"
-            blurDataURL="/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
           />
           <Image
             className="object-cover hover:transform hidden sm:block  mt-[25px]  rounded-lg"
@@ -71,8 +65,6 @@ const MenuSection = () => {
             width={355}
             height={300}
             quality={75} // Adjust the quality to balance between size and clarity
-            placeholder="blur"
-            blurDataURL="/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
           />
         </div>
       </div>
