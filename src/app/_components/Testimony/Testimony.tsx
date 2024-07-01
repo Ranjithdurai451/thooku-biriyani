@@ -83,14 +83,14 @@ export const Testimony: React.FC = () => {
   return (
     <section
       style={{
-        backgroundImage: 'url(testimonyBG.jpg)',
+        backgroundImage: 'url(testimonialBG.jpg)',
         height: '100%',
         width: '100%',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
       }}
-      className="flex flex-col justify-around "
+      className="flex flex-col justify-around bg-black"
     >
       <div className="text-center p-[40px]">
         <p className="md:text-[35px] text-[30px] text-customGreen font-bold leading-none">

@@ -4,10 +4,8 @@ import useEmblaCarousel from 'embla-carousel-react';
 import Fade from 'embla-carousel-fade';
 import Autoplay from 'embla-carousel-autoplay';
 import { useEffect, useState } from 'react';
-
-import '../../app/globals.css';
-import Image from 'next/legacy/image';
-
+import './../../app/globals.css';
+import Image from 'next/image';
 type SlideType = {
   imageUrl: string;
   text: string;
@@ -45,12 +43,12 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
           {slides.map((slide) => (
             <div className="embla__slide" key={slide.imageUrl}>
               <Image
-                className="embla__slide__img w-full h-full"
+                className="embla__slide__img"
                 src={slide.imageUrl}
                 alt="Your alt text"
                 layout="fill"
                 objectFit="cover"
-                quality={10}
+                quality={1}
               />
 
               <div className="gap-2 capitalize embla__slide__text">

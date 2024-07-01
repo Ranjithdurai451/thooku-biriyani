@@ -16,8 +16,8 @@ type TestimonyItemProps = {
 };
 export const TestimonyItem: React.FC<TestimonyItemProps> = ({ data }) => (
   <div
-    className={`flex flex-col justify-around gap-3 p-6 md:gap-5 md:p-8 bg-customGreen ${
-      !data?.isShowOnMobile ? 'hidden sm:block' : ''
+    className={`flex flex-col  gap-3 p-6 md:gap-5 md:p-8 bg-customGreen ${
+      !data?.isShowOnMobile ? 'hidden sm:flex' : ''
     }`}
   >
     <div className="text-justify  md:text-[16px] text-[14px]">
@@ -26,11 +26,11 @@ export const TestimonyItem: React.FC<TestimonyItemProps> = ({ data }) => (
     <div className="flex gap-[15px] ">
       <Image
         src="/about.jpg"
-        className=" rounded-full"
+        className="h-[32px] w-[32px] rounded-full"
         alt=""
         width={32}
         height={32}
-        quality={75} // Adjust the quality to balance between size and clarity
+        quality={1}
       />
       <div className="">
         <p className="md:text-[16px] text-[14px]">{data.user[0].username}</p>
