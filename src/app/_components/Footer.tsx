@@ -12,8 +12,8 @@ export const Footer = () => {
         </p>
         <div className="">
           <p className="pt-[30px] pb-[15px] text-bg md:text-[16px] text-[14px]">
-            "Discover the flavors of our authentic, mouthwatering biryani by
-            signing up today!"
+            &quot;Discover the flavors of our authentic, mouthwatering biryani
+            by signing up today!&quot;
           </p>
           <button className="px-20 py-2 border capitalize border-customGreen bg-customGreen text-white rounded-[3px] hover:text-customGreen hover:bg-transparent hover:transition-all hover:border ">
             sign up
