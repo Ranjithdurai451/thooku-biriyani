@@ -6,6 +6,7 @@ import { Josefin_Sans } from 'next/font/google';
 import ReduxProvider from '@/Store/ReduxProvider';
 import Header from './_components/Header';
 import { Footer } from './_components/Footer';
+import CartModal from './_components/CartModal';
 
 const josefinSans = Josefin_Sans({
   subsets: ['latin'],
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body className={josefinSans.className}>
         <ReduxProvider>
           <Header />
+          <CartModal />
           {children}
           <Footer />
         </ReduxProvider>

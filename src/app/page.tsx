@@ -1,6 +1,8 @@
 import AboutSection from './_components/AboutSection';
+import CartModal from './_components/CartModal';
 import EmblaCarousel from './_components/EmblaCarousel';
 import MenuSection from './_components/MenuSection';
+import { SideBar } from './_components/SideBar';
 import { Testimony } from './_components/Testimony/Testimony';
 
 export default function Home() {
@@ -34,6 +36,7 @@ export default function Home() {
       <AboutSection about={about} />
       <MenuSection />
       <Testimony />
+      <SideBar />
     </>
   );
 }
