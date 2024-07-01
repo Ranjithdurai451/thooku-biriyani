@@ -34,7 +34,7 @@ const Menu = () => {
             }`}
             onClick={() => setSelectedCategory('add-on')}
           >
-            Add On's
+            Add On&apos; s
           </button>
         </div>
 
