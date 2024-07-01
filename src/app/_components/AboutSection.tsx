@@ -20,7 +20,7 @@ const AboutSection = ({ about }: { about: PropType[] }) => {
           alt=""
           width={150}
           height={100}
-          quality={1}
+          quality={25}
         />
         <Image
           src="/about.jpg"
@@ -28,7 +28,7 @@ const AboutSection = ({ about }: { about: PropType[] }) => {
           alt=""
           width={500}
           height={450}
-          quality={1}
+          quality={25}
         />
         <Image
           className="absolute h-[150px] w-[150px] md:w-[200px] md:h-[200px] object-cover"
@@ -37,7 +37,7 @@ const AboutSection = ({ about }: { about: PropType[] }) => {
           alt=""
           width={150}
           height={150}
-          quality={1}
+          quality={25}
         />
       </div>
       <div className=" p-[20px] md:w-[50%] backdrop-blur ">

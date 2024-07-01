@@ -72,7 +72,7 @@ export const Footer = () => {
               alt=""
               width={32}
               height={32}
-              quality={1} // Adjust the quality to balance between size and clarity
+              quality={25} // Adjust the quality to balance between size and clarity
             />
           </a>
           <a href="">
@@ -82,7 +82,7 @@ export const Footer = () => {
               alt=""
               width={32}
               height={32}
-              quality={1} // Adjust the quality to balance between size and clarity
+              quality={25} // Adjust the quality to balance between size and clarity
             />
           </a>
         </div>

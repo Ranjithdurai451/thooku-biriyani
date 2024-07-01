@@ -40,7 +40,7 @@ const MenuSection = () => {
             className=" object-cover  h-[300px] w-[355px] md:h-[200px] md:w-[255px] rounded-lg"
             src="/chicken_combo.jpg"
             alt="three"
-            quality={1}
+            quality={25}
             width={355}
             height={300}
           />
@@ -48,7 +48,7 @@ const MenuSection = () => {
             className="object-cover hover:transform  mt-[25px] h-[300px] w-[355px] md:h-[200px] md:w-[255px] rounded-lg"
             src="/prawn_combo.jpg"
             alt="four"
-            quality={1}
+            quality={25}
             width={355}
             height={300}
           />
@@ -58,7 +58,7 @@ const MenuSection = () => {
             className="object-cover hover:transform hidden sm:block mt-[35px] h-[300px] w-[355px] md:h-[200px] md:w-[255px] rounded-lg"
             src="/add_ons.jpg"
             alt="three"
-            quality={1}
+            quality={25}
             width={355}
             height={300}
           />
@@ -66,7 +66,7 @@ const MenuSection = () => {
             className="object-cover hover:transform hidden sm:block  mt-[25px] h-[300px] w-[355px] md:h-[200px] md:w-[255px] rounded-lg"
             src="/testimonialBG.jpg"
             alt="four"
-            quality={1}
+            quality={25}
             width={355}
             height={300}
           />

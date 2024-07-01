@@ -48,7 +48,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                 alt="Your alt text"
                 layout="fill"
                 objectFit="cover"
-                quality={1}
+                quality={25}
               />
 
               <div className="gap-2 capitalize embla__slide__text">

@@ -30,7 +30,7 @@ export const TestimonyItem: React.FC<TestimonyItemProps> = ({ data }) => (
         alt=""
         width={32}
         height={32}
-        quality={1}
+        quality={25}
       />
       <div className="">
         <p className="md:text-[16px] text-[14px]">{data.user[0].username}</p>
