@@ -24,7 +24,7 @@ const Menu = () => {
             }`}
             onClick={() => setSelectedCategory('combo')}
           >
-            Combo's
+            Combo&apos;s
           </button>
           <button
             className={`px-4 py-2  rounded-full border-customGreen md:text-[16px] text-[14px]  ${
