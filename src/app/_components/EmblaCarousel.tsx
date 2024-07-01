@@ -6,6 +6,7 @@ import Autoplay from 'embla-carousel-autoplay';
 import { useEffect, useState } from 'react';
 
 import '../../app/globals.css';
+import Image from 'next/image';
 
 type SlideType = {
   imageUrl: string;
@@ -43,10 +44,15 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         <div className="embla__container">
           {slides.map((slide) => (
             <div className="embla__slide" key={slide.imageUrl}>
-              <img
-                className="embla__slide__img"
+              <Image
+                className="embla__slide__img w-full h-full"
                 src={slide.imageUrl}
                 alt="Your alt text"
+                layout="fill"
+                objectFit="cover"
+                quality={75}
+                placeholder="blur"
+                blurDataURL="/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
               />
 
               <div className="gap-2 capitalize embla__slide__text">

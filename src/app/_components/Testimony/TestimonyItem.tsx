@@ -30,6 +30,9 @@ export const TestimonyItem: React.FC<TestimonyItemProps> = ({ data }) => (
         alt=""
         width={32}
         height={32}
+        quality={75} // Adjust the quality to balance between size and clarity
+        placeholder="blur"
+        blurDataURL="/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
       />
       <div className="">
         <p className="md:text-[16px] text-[14px]">{data.user[0].username}</p>
