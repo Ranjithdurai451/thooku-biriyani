@@ -20,7 +20,7 @@ const Header = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, [cart.totalAmount]);
+  }, [cart.totalAmount, cart.cartItems.length]);
 
   useEffect(() => {
     let prevscroll = 10;
