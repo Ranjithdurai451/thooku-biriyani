@@ -40,27 +40,24 @@ const Header = () => {
     fetch();
   }, []);
 
-  useEffect(() => {
-    console.log('isCartModalOpen', cart.isCartModalOpen);
-  }, [cart.isCartModalOpen]);
-  useEffect(() => {
-    let prevscroll = 10;
-    const header = document.querySelector('.header') as HTMLElement;
-    const handleScroll = () => {
-      let currentscroll = window.pageYOffset;
-      if (currentscroll > prevscroll) {
-        header.classList.add('scrollactive');
-      } else {
-        header.classList.remove('scrollactive');
-      }
-      prevscroll = currentscroll;
-    };
+  // useEffect(() => {
+  //   let prevscroll = 0;
+  //   const header = document.querySelector('.header') as HTMLElement;
+  //   const handleScroll = () => {
+  //     let currentscroll = window.pageYOffset;
+  //     if (currentscroll > prevscroll) {
+  //       header.classList.add('scrollactive');
+  //     } else {
+  //       header.classList.remove('scrollactive');
+  //     }
+  //     prevscroll = currentscroll;
+  //   };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  //   window.addEventListener('scroll', handleScroll);
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, []);
 
   return (
     <>
