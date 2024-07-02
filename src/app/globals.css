@@ -115,8 +115,10 @@ body::-webkit-scrollbar-thumb {
     scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
   }
 }
-html.no-scroll {
-  overflow-y: auto;
+body.noscroll {
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 .cart {
   right: -100%;

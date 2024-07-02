@@ -15,9 +15,9 @@ const CartModal = () => {
 
   useEffect(() => {
     if (cart.isCartModalOpen) {
-      document.querySelector('html')?.classList.add('no-scroll');
+      document.querySelector('body')?.classList.add('noscroll');
     } else {
-      document.querySelector('html')?.classList.remove('no-scroll');
+      document.querySelector('body')?.classList.remove('noscroll');
     }
   }, [cart.isCartModalOpen]);
 

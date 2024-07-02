@@ -1,13 +1,16 @@
-'use client';
-import { RootState } from '@/Store/store';
-import { useState } from 'react';
+import { fetchMenuItems } from '../../../backend/Actions/actions';
+import { MenuItemType } from '@/Utils/types';
+import CategorySelector from './_components/CategorySelector';
 
-import { useSelector } from 'react-redux';
-import MenuItem from './_components/MenuItem';
+export const generateStaticParams = async () => {
+  const menuItems: MenuItemType[] = await fetchMenuItems();
+  // console.log('menuItems', menuItems);
+  console.log('working');
+  return { menuItems };
+};
 
-const Menu = () => {
-  const menuItems = useSelector((state: RootState) => state.menu.menuItems);
-  const [selectedCategory, setSelectedCategory] = useState('combo');
+const Menu = ({ menuItems }: { menuItems: MenuItemType[] }) => {
+  // const menuItems = useSelector((state: RootState) => state.menu.menuItems);
 
   return (
     <>
@@ -15,42 +18,7 @@ const Menu = () => {
         <h1 className="md:text-3xl text-2xl font-[900] text-center underline text-customGreen underline-offset-8">
           ThooKu Biriyani Menu
         </h1>
-        <div className="flex justify-center gap-5 uppercase">
-          <button
-            className={`px-4 py-2  rounded-full border-customGreen md:text-[16px] text-[14px]  ${
-              selectedCategory === 'combo'
-                ? 'border-2  border-solid text-customGreen'
-                : ''
-            }`}
-            onClick={() => setSelectedCategory('combo')}
-          >
-            Combo&apos;s
-          </button>
-          <button
-            className={`px-4 py-2  rounded-full border-customGreen md:text-[16px] text-[14px]  ${
-              selectedCategory === 'add-on'
-                ? ' border-2  border-solid text-customGreen'
-                : ''
-            }`}
-            onClick={() => setSelectedCategory('add-on')}
-          >
-            Add On&apos; s
-          </button>
-        </div>
-
-        <div className="grid grid-cols-1 gap-5 xl:gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {menuItems &&
-            menuItems
-              .filter((item) => item.category === selectedCategory)
-              .sort((a, b) => {
-                return (
-                  parseFloat(String(b?.price).replace(/,/g, '')) -
-                  parseFloat(String(a?.price).replace(/,/g, ''))
-                );
-              })
-
-              .map((item) => <MenuItem item={item} key={item?.id} />)}
-        </div>
+        <CategorySelector menuItems={menuItems} />
       </section>
     </>
   );
