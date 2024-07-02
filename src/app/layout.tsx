@@ -3,6 +3,7 @@ import './globals.css';
 
 import { Josefin_Sans } from 'next/font/google';
 import DefaultLayout from './_components/DefaultLayout';
+import InnitialLoader from './_components/InnitialLoader';
 
 const josefinSans = Josefin_Sans({
   subsets: ['latin'],
@@ -22,9 +23,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // const pathname = usePathname();
   return (
     <html lang="en">
       <body className={josefinSans.className}>
+        <InnitialLoader />
         <DefaultLayout>{children}</DefaultLayout>
       </body>
     </html>

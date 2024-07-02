@@ -15,9 +15,9 @@ const CartModal = () => {
 
   useEffect(() => {
     if (cart.isCartModalOpen) {
-      document.querySelector('body')?.classList.add('noscroll');
+      document.querySelector('body')?.style.setProperty('position', 'fixed');
     } else {
-      document.querySelector('body')?.classList.remove('noscroll');
+      document.querySelector('body')?.style.setProperty('position', 'static');
     }
   }, [cart.isCartModalOpen]);
 
