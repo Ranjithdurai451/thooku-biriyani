@@ -9,7 +9,7 @@ export default function InitialLoader() {
     const timer = setTimeout(() => {
       setShow(false);
       document?.querySelector('body')?.style.setProperty('position', 'static');
-    }, 2000);
+    }, 1500);
     return () => clearTimeout(timer);
   }, []);
 
