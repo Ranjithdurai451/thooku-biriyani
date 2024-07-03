@@ -306,7 +306,8 @@ body {
   left: 0;
 }
 .zoom-in {
-  animation: zoomIn 3s;
+  animation: zoomIn 2s;
+  animation-delay:1s;
 }
 .fade-in {
   animation: fadeIn 1s ease-in-out;
