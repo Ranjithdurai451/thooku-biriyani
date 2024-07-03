@@ -58,7 +58,7 @@ const Checkout = () => {
   });
 
   function checkoutHandler(data: z.infer<typeof checkoutSchema>) {
-    console.log(data);
+    // console.log(data);
   }
 
   return (

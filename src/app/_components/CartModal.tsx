@@ -37,14 +37,14 @@ const CartModal = () => {
           cart.isCartModalOpen ? 'active' : ''
         }`}
       >
-        <div className="flex items-center justify-between p-4 border-b border-black border-opacity-20 ">
+        <div className="flex  items-center justify-between p-4 border-b border-black border-opacity-20 ">
           <h1 className="text-xl">Shopping Cart</h1>
           <button onClick={() => dispatch(toggleCartModal())}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
-              fill="none"
+              fill="black"
               viewBox="0 0 24 24"
             >
               <path
@@ -73,7 +73,7 @@ const CartModal = () => {
           <div className="flex items-center justify-center flex-grow px-4">
             <button
               onClick={goToCart}
-              className="w-full py-2 text-center duration-100 border border-black border-solid rounded-full hover:text-customGreen hover:border-customGreen"
+              className="w-full  py-2 text-center duration-100 border border-black border-solid rounded-full hover:text-customGreen hover:border-customGreen"
             >
               View Cart
             </button>

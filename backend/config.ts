@@ -1,28 +1,21 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from 'firebase/app';
-import { addDoc, collection, getFirestore } from 'firebase/firestore';
+import { Client, Databases } from 'appwrite';
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+const client = new Client();
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: 'AIzaSyASxG_MEU3hq3b58s6XgsBFSkAAu4mKIBs',
-  authDomain: 'restaurantapp-af754.firebaseapp.com',
-  projectId: 'restaurantapp-af754',
-  storageBucket: 'restaurantapp-af754.appspot.com',
-  messagingSenderId: '328355740166',
-  appId: '1:328355740166:web:3cc7794b6c16dad6a1a187',
-  measurementId: 'G-6470ZP4DSG',
-};
+client
+  .setEndpoint('https://cloud.appwrite.io/v1') // Your Appwrite Endpoint
+  .setProject('66842f3c003d870ba37e'); // Your project ID
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const databases = new Databases(client);
 
-const db = getFirestore(app);
+export const appwriteConfig = {
+  menuCollectionId: "66852d590015fc9f651c",
+  databaseId: "66852d4b00215a3cf713"
+}
 
-export { db };
+export { client, databases };
+
+
 const data = [
   {
     category: 'combo',
@@ -187,27 +180,12 @@ const data = [
   },
 ];
 
-console.log(data);
 
 
 
 
-export const MenuCollRef = collection(db, 'Menu');
-function addItems() {
-  data.forEach(async (item) => {
-
-    try {
 
 
-      await addDoc(MenuCollRef, item);
-    } catch (error) {
 
-      console.log(error);
+// lib/appwrite.js
 
-    }
-
-  });
-}
-
-
-export { addItems };

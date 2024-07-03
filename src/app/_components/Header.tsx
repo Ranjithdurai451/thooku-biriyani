@@ -1,14 +1,10 @@
 'use client';
 
 import { setCart, toggleCartModal } from '@/Store/Slices/cartSlice';
-import { setMenuItems } from '@/Store/Slices/menuSlice';
 import { AppDispatch, RootState } from '@/Store/store';
-import { MenuItemType } from '@/Utils/types';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchMenuItems } from '../../../backend/Actions/actions';
-import CartModal from './CartModal';
 
 const Header = () => {
   const [animate, setAnimate] = useState(false);
@@ -27,18 +23,15 @@ const Header = () => {
   }, [cart.totalAmount, cart.cartItems.length]);
 
   useEffect(() => {
-    async function fetch() {
-      const menuItems: MenuItemType[] = await fetchMenuItems();
-      dispatch(setMenuItems(menuItems));
-    }
-
     const storedCart = localStorage.getItem('cart');
     if (storedCart) {
       dispatch(setCart(JSON.parse(storedCart)));
     }
-
-    fetch();
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   // useEffect(() => {
   //   let prevscroll = 0;

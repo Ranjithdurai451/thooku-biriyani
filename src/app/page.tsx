@@ -36,7 +36,6 @@ export default function Home() {
       <AboutSection about={about} />
       <MenuSection />
       <Testimony />
-      <SideBar />
     </>
   );
 }

@@ -5,8 +5,8 @@ import MenuItem from './MenuItem';
 import { RootState } from '@/Store/store';
 import { useSelector } from 'react-redux';
 
-const CategorySelector = () => {
-  const menuItems = useSelector((state: RootState) => state.menu.menuItems);
+const CategorySelector = ({ menuItems }: { menuItems: MenuItemType[] }) => {
+  // const menuItems = useSelector((state: RootState) => state.menu.menuItems);
 
   const [selectedCategory, setSelectedCategory] = useState('combo');
 

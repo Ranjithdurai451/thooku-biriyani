@@ -22,12 +22,12 @@ const navLinks = [
   //   route: '/cart',
   //   isEnd: false,
   // },
-  // {
-  //   name: 'account',
-  //   icon: 'user_icon.svg',
-  //   route: '/account',
-  //   isEnd: false,
-  // },
+  {
+    name: 'account',
+    icon: 'user_icon.svg',
+    route: '/account',
+    isEnd: false,
+  },
 ];
 
 export function SideBar() {

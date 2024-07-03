@@ -4,6 +4,7 @@ import './globals.css';
 import { Josefin_Sans } from 'next/font/google';
 import DefaultLayout from './_components/DefaultLayout';
 import InnitialLoader from './_components/InnitialLoader';
+import { ThemeProvider } from 'next-themes';
 
 const josefinSans = Josefin_Sans({
   subsets: ['latin'],
@@ -27,8 +28,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={josefinSans.className}>
-        <InnitialLoader />
-        <DefaultLayout>{children}</DefaultLayout>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="white"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <InnitialLoader />
+          <DefaultLayout> {children}</DefaultLayout>
+        </ThemeProvider>
       </body>
     </html>
   );
