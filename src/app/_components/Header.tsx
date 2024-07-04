@@ -5,6 +5,8 @@ import { AppDispatch, RootState } from '@/Store/store';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { findUser, getUserState } from '../../../backend/Actions/actions';
+import { logout, setUserInfo } from '@/Store/Slices/userSlice';
 
 const Header = () => {
   const [animate, setAnimate] = useState(false);
@@ -27,6 +29,28 @@ const Header = () => {
     if (storedCart) {
       dispatch(setCart(JSON.parse(storedCart)));
     }
+  }, []);
+
+  useEffect(() => {
+    async function setUser() {
+      const user = await getUserState();
+
+      if (user) {
+        const userInfo = await findUser({ email: user.email });
+        dispatch(
+          setUserInfo({
+            id: userInfo?._id,
+            username: userInfo?.username,
+            email: userInfo?.email,
+            profileImg: userInfo?.profileImg,
+          })
+        );
+      } else {
+        dispatch(logout());
+      }
+    }
+
+    setUser();
   }, []);
 
   useEffect(() => {

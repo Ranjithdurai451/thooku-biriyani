@@ -9,13 +9,20 @@ import { SideBar } from './SideBar';
 
 const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
+
+  const shouldShowLayoutComponents = ![
+    '/checkout',
+    '/auth/login',
+    '/auth/signup',
+  ].includes(pathname);
+
   return (
     <ReduxProvider>
-      {pathname != '/checkout' && <Header />}
+      {shouldShowLayoutComponents && <Header />}
       {children}
-      {pathname != '/checkout' && <Footer />}
-      {pathname != '/checkout' && <SideBar />}
-      {pathname != '/checkout' && <CartModal />}
+      {shouldShowLayoutComponents && <Footer />}
+      {shouldShowLayoutComponents && <SideBar />}
+      {shouldShowLayoutComponents && <CartModal />}
     </ReduxProvider>
   );
 };

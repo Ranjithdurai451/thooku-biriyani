@@ -1,4 +1,4 @@
-import { Client, Databases } from 'appwrite';
+import { Account, Avatars, Client, Databases } from 'appwrite';
 
 const client = new Client();
 
@@ -7,13 +7,17 @@ client
   .setProject('66842f3c003d870ba37e'); // Your project ID
 
 const databases = new Databases(client);
+const account = new Account(client);
+const avatars = new Avatars(client);
 
 export const appwriteConfig = {
   menuCollectionId: "66852d590015fc9f651c",
   databaseId: "66852d4b00215a3cf713"
+  ,
+  userCollectionId: "6686abab0021f72f20b2"
 }
 
-export { client, databases };
+export { client, databases, account };
 
 
 const data = [

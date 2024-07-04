@@ -2,6 +2,13 @@ import { MenuItemType } from '@/Utils/types';
 import { appwriteConfig, databases } from '../../../backend/config';
 import CategorySelector from './_components/CategorySelector';
 export const dynamic = 'force-static';
+
+export const generateMetadata = () => {
+  return {
+    title: 'ThooKu Biriyani Menu',
+    description: 'Best biryani in India',
+  };
+};
 const Menu = async () => {
   let menuItems: MenuItemType[] = [];
 
