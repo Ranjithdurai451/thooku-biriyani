@@ -20,7 +20,7 @@ export const TestimonyItem: React.FC<TestimonyItemProps> = ({ data }) => (
       !data?.isShowOnMobile ? 'hidden sm:flex' : ''
     }`}
   >
-    <div className="text-justify  md:text-[16px] text-[14px]">
+    <div className="text-justify  md:text-[16px] text-[14px] text-black">
       {data.feedback}
     </div>
     <div className="flex gap-[15px] ">
@@ -33,8 +33,10 @@ export const TestimonyItem: React.FC<TestimonyItemProps> = ({ data }) => (
         quality={25}
       />
       <div className="">
-        <p className="md:text-[16px] text-[14px]">{data.user[0].username}</p>
-        <p className=" text-black md:text-[12px] text-[10px]">
+        <p className="md:text-[16px] text-[14px] text-black">
+          {data.user[0].username}
+        </p>
+        <p className=" text-black md:text-[12px] text-[10px] text-black">
           {data.user[0].date}
         </p>
       </div>

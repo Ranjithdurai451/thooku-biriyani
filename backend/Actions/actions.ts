@@ -82,3 +82,13 @@ export async function getUserState() {
         return null;
     }
 }
+
+
+export async function logout() {
+    try {
+        const user = await account.deleteSession("current");
+        console.log("user", user)
+    } catch (error: any) {
+        return null;
+    }
+}

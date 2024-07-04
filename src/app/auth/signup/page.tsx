@@ -19,6 +19,9 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { findUser, signUp } from '../../../../backend/Actions/actions';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '@/Store/store';
+import { setUserInfo } from '@/Store/Slices/userSlice';
 
 const signupSchema = z.object({
   email: z
@@ -38,6 +41,7 @@ const signupSchema = z.object({
 type signUpSchemaType = z.infer<typeof signupSchema>;
 
 const SignUp = () => {
+  const dispatch: AppDispatch = useDispatch();
   const [isPending, setIsPending] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -73,6 +77,15 @@ const SignUp = () => {
       password: data.password,
     });
     if (signupAction) {
+      const userInfo = await findUser({ email: data.email });
+      dispatch(
+        setUserInfo({
+          id: userInfo?._id,
+          username: userInfo?.username,
+          email: userInfo?.email,
+          profileImg: userInfo?.profileImg,
+        })
+      );
       router.push('/');
       setIsPending(false);
     } else {
@@ -85,7 +98,7 @@ const SignUp = () => {
     <Card className="mx-auto sm:w-[360px] ">
       <form onSubmit={handleSubmit(submitHandler)}>
         <CardHeader>
-          <CardTitle className="text-2xl">Sign Up</CardTitle>
+          <CardTitle className="text-2xl ">Sign Up</CardTitle>
           <CardDescription>
             Enter your information to create an account
           </CardDescription>
@@ -138,7 +151,7 @@ const SignUp = () => {
           </div>
           <div className="mt-4 text-sm text-center">
             Already have an account?{' '}
-            <Link href="/auth/login" className="underline">
+            <Link href="/auth/login" className="underline text-customGreen">
               Sign in
             </Link>
           </div>

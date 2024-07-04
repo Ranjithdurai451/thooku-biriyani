@@ -20,12 +20,12 @@ const MenuItem = ({ item }: { item: MenuItemType }) => {
         <img src={item?.image_url} alt="" className=" rounded-xl" />
         <button
           onClick={(e) => addToCart(e)}
-          className="absolute p-3 rounded bg-customGreen md:bottom-[-20px] bottom-[15px] left-[50%] opacity-100 translate-x-[-50%] text-[12px] md:opacity-0 md:group-hover:opacity-100 md:group-hover:bottom-[15px]  transitionBtn  "
+          className="absolute p-3 text-white rounded bg-customGreen md:bottom-[-20px] bottom-[15px] left-[50%] opacity-100 translate-x-[-50%] text-[12px] md:opacity-0 md:group-hover:opacity-100 md:group-hover:bottom-[15px]  transitionBtn  "
         >
           ADD TO CART
         </button>
       </Link>
-      <p className="md:text-[16px] text-[14px]">
+      <p className="md:text-[16px] text-[14px] text-white">
         {item?.name} {item?.serves && ` - Serves  ${item?.serves} `}
       </p>
       <p className="text-white md:text-[16px] text-[14px]">

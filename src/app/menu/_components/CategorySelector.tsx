@@ -6,15 +6,13 @@ import { RootState } from '@/Store/store';
 import { useSelector } from 'react-redux';
 
 const CategorySelector = ({ menuItems }: { menuItems: MenuItemType[] }) => {
-  // const menuItems = useSelector((state: RootState) => state.menu.menuItems);
-
   const [selectedCategory, setSelectedCategory] = useState('combo');
 
   return (
     <>
       <div className="flex justify-center gap-5 uppercase">
         <button
-          className={`px-4 py-2  rounded-full border-customGreen md:text-[16px] text-[14px]  ${
+          className={`px-4 py-2  rounded-full border-customGreen md:text-[16px] text-[14px]   ${
             selectedCategory === 'combo'
               ? 'border-2  border-solid text-customGreen'
               : ''

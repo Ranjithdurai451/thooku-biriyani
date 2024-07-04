@@ -62,7 +62,7 @@ const Checkout = () => {
   }
 
   return (
-    <div className="flex flex-col w-dvw min-h-dvh">
+    <div className="flex flex-col w-dvw min-h-dvh text-black bg-white">
       <div className="flex items-baseline justify-between p-4 border-b border-black border-opacity-15">
         <Link href="/" className="ml-2 text-xl font-bold">
           {' '}

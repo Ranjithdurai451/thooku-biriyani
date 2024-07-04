@@ -57,8 +57,8 @@ const ItemPage = async ({ params }: { params: { itemId: string } }) => {
       <h1 className="text-xl font-bold underline md:text-2xl underline-offset-4 text-customGreen">
         Description
       </h1>
-      <div className="font-light text-secondary">{item?.description}</div>
-      <div className="font-light text-secondary">
+      <div className="font-light text-white">{item?.description}</div>
+      <div className="font-light text-white">
         {item?.items?.map((item) => (
           <div key={item}>{item}</div>
         ))}

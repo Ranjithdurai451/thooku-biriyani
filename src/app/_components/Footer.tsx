@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const Footer = () => {
   return (
@@ -12,12 +13,15 @@ export const Footer = () => {
         </p>
         <div className="">
           <p className="pt-[30px] pb-[15px] text-bg md:text-[16px] text-[14px]">
-            &quot;Discover the flavors of our authentic, mouthwatering biryani
-            by signing up today!&quot;
+            "Discover the flavors of our authentic, mouthwatering biryani by
+            signing up today!"
           </p>
-          <button className="px-20 py-2 border capitalize border-customGreen bg-customGreen text-white rounded-[3px] hover:text-customGreen hover:bg-transparent hover:transition-all hover:border ">
+          <Link
+            href="/auth/signup"
+            className="px-20 py-2 border capitalize border-customGreen bg-customGreen text-white rounded-[3px] hover:text-customGreen hover:bg-transparent hover:transition-all hover:border "
+          >
             sign up
-          </button>
+          </Link>
         </div>
       </div>
       <div>
@@ -49,8 +53,11 @@ export const Footer = () => {
           <p>
             Email:
             <span>
-              <a href="" className="ml-1 hover:text-customGreen">
-                vimalofficial02@gmail.com
+              <a
+                href="mailto:thookubiriyani@gmail.com"
+                className="ml-1 hover:text-customGreen"
+              >
+                thookubiriyani@gmail.com
               </a>
             </span>
           </p>
@@ -59,30 +66,24 @@ export const Footer = () => {
             Mobile:
             <span>
               <a href="" className="py-[5px] ml-1 hover:text-customGreen">
-                9384641042
+                +91 73392 20695
               </a>
             </span>
           </p>
         </div>
         <div className="flex items-center pt-[10px] gap-3 [&>a>img]:cursor-pointer [&>a>img]:w-[32px] [&>a>img]:h-[32px] [&>a>img]:transition-all [&>a>img]:duration-500 [&>a>img]:rounded-lg">
-          <a href="">
-            <Image
-              src="/instagram_icon.svg"
-              className="hover:bg-insta "
+          <a href="https://www.instagram.com/thooku.biriyani?igsh=cGJ2cGoxbm1jdTB4">
+            <img
+              src="instagram_icon.svg"
+              className="hover:bg-[#E1306C] "
               alt=""
-              width={32}
-              height={32}
-              quality={25} // Adjust the quality to balance between size and clarity
             />
           </a>
-          <a href="">
-            <Image
-              src="/whatsapp_icon.svg"
+          <a href="https://wa.me/917339220695">
+            <img
+              src="whatsapp_icon.svg"
               className=" hover:bg-green-400"
               alt=""
-              width={32}
-              height={32}
-              quality={25} // Adjust the quality to balance between size and clarity
             />
           </a>
         </div>

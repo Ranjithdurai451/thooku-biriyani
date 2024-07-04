@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { findUser, getUserState } from '../../../backend/Actions/actions';
-import { logout, setUserInfo } from '@/Store/Slices/userSlice';
+import { clearUser, setUserInfo } from '@/Store/Slices/userSlice';
 
 const Header = () => {
   const [animate, setAnimate] = useState(false);
@@ -46,7 +46,7 @@ const Header = () => {
           })
         );
       } else {
-        dispatch(logout());
+        dispatch(clearUser());
       }
     }
 

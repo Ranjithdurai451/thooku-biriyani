@@ -18,6 +18,9 @@ import { z } from 'zod';
 import { account } from '../../../../backend/config';
 import { useRouter } from 'next/navigation';
 import { findUser, login } from '../../../../backend/Actions/actions';
+import { AppDispatch } from '@/Store/store';
+import { useDispatch } from 'react-redux';
+import { setUserInfo } from '@/Store/Slices/userSlice';
 
 const loginSchema = z.object({
   email: z
@@ -31,6 +34,7 @@ const loginSchema = z.object({
 });
 type loginSchemaType = z.infer<typeof loginSchema>;
 const Login = () => {
+  const dispatch: AppDispatch = useDispatch();
   const router = useRouter();
   const [isPending, setIsPending] = useState(false);
 
@@ -65,6 +69,15 @@ const Login = () => {
     });
 
     if (loginAction) {
+      const userInfo = await findUser({ email: data.email });
+      dispatch(
+        setUserInfo({
+          id: userInfo?._id,
+          username: userInfo?.username,
+          email: userInfo?.email,
+          profileImg: userInfo?.profileImg,
+        })
+      );
       router.push('/');
       setIsPending(false);
     } else {
@@ -77,13 +90,13 @@ const Login = () => {
     <form onSubmit={handleSubmit(submitHandler)}>
       <Card className="sm:w-[360px] mx-auto">
         <CardHeader>
-          <CardTitle className="text-2xl">Login</CardTitle>
+          <CardTitle className="text-2xl ">Login</CardTitle>
           <CardDescription>
             Enter your email below to login to your account
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid gap-4">
+          <div className="grid gap-2">
             <div className="grid gap-2">
               <Label htmlFor="email">Email</Label>
               <Input
@@ -124,7 +137,7 @@ const Login = () => {
           </div>
           <div className="mt-4 text-xs text-center">
             Don&apos;t have an account?{' '}
-            <Link href="/auth/signup" className="underline">
+            <Link href="/auth/signup" className="underline text-customGreen">
               Sign up
             </Link>
           </div>

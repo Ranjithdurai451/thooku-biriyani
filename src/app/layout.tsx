@@ -30,7 +30,7 @@ export default function RootLayout({
       <body className={josefinSans.className}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
