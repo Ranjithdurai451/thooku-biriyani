@@ -1,7 +1,10 @@
+import { RootState } from "@/Store/store";
 import Image from "next/image";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 export const Footer = () => {
+  const user = useSelector((state: RootState) => state.user);
   return (
     <div
       id="contact"
@@ -16,12 +19,14 @@ export const Footer = () => {
             "Discover the flavors of our authentic, mouthwatering biryani by
             signing up today!"
           </p>
-          <Link
-            href="/auth/signup"
-            className="px-20 py-2 border capitalize border-customGreen bg-customGreen text-white rounded-[3px] hover:text-customGreen hover:bg-transparent hover:transition-all hover:border "
-          >
-            sign up
-          </Link>
+          {!user.isAuthenticated && (
+            <Link
+              href="/auth/signup"
+              className="px-20 py-2 border capitalize border-customGreen bg-customGreen text-white rounded-[3px] hover:text-customGreen hover:bg-transparent hover:transition-all hover:border "
+            >
+              sign up
+            </Link>
+          )}
         </div>
       </div>
       <div>
