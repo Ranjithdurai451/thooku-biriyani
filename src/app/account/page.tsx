@@ -20,7 +20,6 @@ const page = () => {
   }
   return (
     <div className="h-dvh w-full bg-black py-[100px] px-[50px] flex justify-center items-center flex-col  gap-5">
-      <h1 className="text-white text-3xl">Collab Working</h1>
       {!user.isAuthenticated && (
         <Link className="text-customGreen" href="/auth/login">
           Login
