@@ -1,7 +1,7 @@
-import { RootState } from "@/Store/store";
-import Image from "next/image";
-import Link from "next/link";
-import { useSelector } from "react-redux";
+import { RootState } from '@/Store/store';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useSelector } from 'react-redux';
 
 export const Footer = () => {
   const user = useSelector((state: RootState) => state.user);
@@ -78,15 +78,11 @@ export const Footer = () => {
         </div>
         <div className="flex items-center pt-[10px] gap-3 [&>a>img]:cursor-pointer [&>a>img]:w-[32px] [&>a>img]:h-[32px] [&>a>img]:transition-all [&>a>img]:duration-500 [&>a>img]:rounded-lg">
           <a href="https://www.instagram.com/thooku.biriyani?igsh=cGJ2cGoxbm1jdTB4">
-            <img src="instagram_icon.svg" className=" " alt="" />
+            <img src="/instagram_icon.svg" className=" " alt="" />
           </a>
           <a href="https://wa.me/917339220695">
-            {/* <img
-              src="whatsapp_icon.svg"
-              className=" hover:bg-green-400"
-              alt=""
-            /> */}
-            <svg
+            <img src="/whatsapp_icon.svg" className=" " alt="" />
+            {/* <svg
               height="32px"
               version="1.1"
               viewBox="0 0 509 512"
@@ -103,7 +99,7 @@ export const Footer = () => {
                   id="whatsup"
                 />
               </g>
-            </svg>
+            </svg> */}
           </a>
         </div>
       </div>

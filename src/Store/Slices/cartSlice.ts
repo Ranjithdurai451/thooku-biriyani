@@ -19,7 +19,10 @@ const cartSlice = createSlice({
                 else
                     state.cartItems[itemIndex].quantity += 1;
             } else {
-                state.cartItems.push({ ...action.payload, quantity: 1 });
+                if (action.payload.quantity)
+                    state.cartItems.push({ ...action.payload, quantity: action.payload.quantity });
+                else
+                    state.cartItems.push({ ...action.payload, quantity: 1 });
             }
 
             state.totalAmount = state.cartItems.reduce((total, item) => total + (item?.price || 0) * item.quantity, 0);

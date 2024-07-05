@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { findUser, getUserState } from '../../../backend/Actions/actions';
 import { clearUser, setUserInfo } from '@/Store/Slices/userSlice';
+import { appwriteConfig, databases } from '../../../backend/config';
 
 const Header = () => {
   const [animate, setAnimate] = useState(false);
@@ -25,6 +26,15 @@ const Header = () => {
   }, [cart.totalAmount, cart.cartItems.length]);
 
   useEffect(() => {
+    async function fetchOrders() {
+      const orders = await databases.listDocuments(
+        appwriteConfig.databaseId,
+        appwriteConfig.orderCollectionId
+      );
+      console.log(orders);
+    }
+
+    fetchOrders();
     const storedCart = localStorage.getItem('cart');
     if (storedCart) {
       dispatch(setCart(JSON.parse(storedCart)));
@@ -37,9 +47,10 @@ const Header = () => {
 
       if (user) {
         const userInfo = await findUser({ email: user.email });
+        console.log(userInfo);
         dispatch(
           setUserInfo({
-            id: userInfo?._id,
+            id: userInfo?.$id,
             username: userInfo?.username,
             email: userInfo?.email,
             profileImg: userInfo?.profileImg,
@@ -54,6 +65,7 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
+    if (cart.cartItems.length == 0) return;
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
 

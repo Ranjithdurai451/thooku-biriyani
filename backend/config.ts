@@ -12,9 +12,9 @@ const avatars = new Avatars(client);
 
 export const appwriteConfig = {
   menuCollectionId: "66852d590015fc9f651c",
-  databaseId: "66852d4b00215a3cf713"
-  ,
-  userCollectionId: "6686abab0021f72f20b2"
+  databaseId: "66852d4b00215a3cf713",
+  userCollectionId: "6686abab0021f72f20b2",
+  orderCollectionId: "6687f9750023207a8caf",
 }
 
 export { client, databases, account };

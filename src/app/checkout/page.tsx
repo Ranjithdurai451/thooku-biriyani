@@ -18,32 +18,40 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
+import { placeOrder } from '../../../backend/Actions/actions';
+import { useRouter } from 'next/navigation';
 const Checkout = () => {
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [errorMsg, setErrMsg] = useState('');
+
   const cart = useSelector((state: RootState) => state.cart);
+  const user = useSelector((state: RootState) => state.user);
   const [orderSummaryActive, setOrderSummaryActive] = useState(false);
 
   const checkoutSchema = z.object({
-    mobilePhoneNumber: z
+    phoneNumber: z
       .string()
       .min(10, { message: 'Mobile phone number must be at least 10 digits' })
       .max(15, { message: 'Mobile phone number must be at most 15 digits' }),
-    country: z.string().optional(),
+    // country: z.string().optional(),
     firstName: z.string().nonempty({ message: 'First name is required' }),
     lastName: z.string().nonempty({ message: 'Last name is required' }),
-    company: z.string().optional(),
+    // company: z.string().optional(),
     address: z.string().nonempty({ message: 'Address is required' }),
-    apartment: z.string().optional(),
+    // apartment: z.string().optional(),
     city: z.string().nonempty({ message: 'City is required' }),
-    state: z.string().optional(),
+    // state: z.string().optional(),
     pinCode: z
       .string()
       .min(5, { message: 'PIN code must be at least 5 digits' })
       .max(6, { message: 'PIN code must be at most 6 digits' }),
-    phone: z
-      .string()
-      .min(10, { message: 'Phone number must be at least 10 digits' })
-      .max(15, { message: 'Phone number must be at most 15 digits' }),
-    saveInfo: z.boolean().optional(),
+    // phone: z
+    //   .string()
+    //   .min(10, { message: 'Phone number must be at least 10 digits' })
+    //   .max(15, { message: 'Phone number must be at most 15 digits' }),
+    // saveInfo: z.boolean().optional(),
   });
 
   const {
@@ -53,16 +61,34 @@ const Checkout = () => {
   } = useForm<z.infer<typeof checkoutSchema>>({
     resolver: zodResolver(checkoutSchema),
     defaultValues: {
-      saveInfo: true,
+      // saveInfo: true,
     },
   });
 
-  function checkoutHandler(data: z.infer<typeof checkoutSchema>) {
+  async function checkoutHandler(data: z.infer<typeof checkoutSchema>) {
+    console.log(user);
+    setIsLoading(true);
+    const res = await placeOrder({
+      cart: cart,
+      phoneNumber: Number(data.phoneNumber),
+      address: data.address,
+      userId: user.userInfo.id,
+    });
+
+    if (!res) {
+      setIsLoading(false);
+      setErrMsg('Could not place order');
+      return;
+    }
+
+    router.push('/');
+    setIsLoading(false);
+
     // console.log(data);
   }
 
   return (
-    <div className="flex flex-col w-dvw min-h-dvh text-black bg-white">
+    <div className="flex flex-col w-full min-h-dvh text-black bg-white">
       <div className="flex items-baseline justify-between p-4 border-b border-black border-opacity-15">
         <Link href="/" className="ml-2 text-xl font-bold">
           {' '}
@@ -140,7 +166,7 @@ const Checkout = () => {
             <div className="flex flex-col gap-4 px-4">
               <div className="flex items-center gap-4 ">
                 <Input type="text" placeholder="Discount code"></Input>
-                <Button variant={'outline'}>Apply</Button>
+                <Button>Apply</Button>
               </div>
 
               <div className="flex items-center justify-between ">
@@ -166,18 +192,18 @@ const Checkout = () => {
               <h2 className="text-xl">Contact</h2>
               <Input
                 type="text"
-                placeholder=" Mobile phone number"
-                {...register('mobilePhoneNumber')}
+                placeholder="  phone number"
+                {...register('phoneNumber')}
               />
-              {errors.mobilePhoneNumber && (
+              {errors.phoneNumber && (
                 <p className="text-sm text-red-500">
-                  {errors.mobilePhoneNumber.message}
+                  {errors.phoneNumber.message}
                 </p>
               )}
             </div>
             <div className="flex flex-col gap-4 p-4 bg-white border-t border-b border-black border-opacity-15 sm:border-none">
               <h2 className="text-xl ">Delivery</h2>
-              <div className="space-y-2">
+              {/* <div className="space-y-2">
                 <Label htmlFor="country">Country/Region</Label>
                 <Select {...register('country')}>
                   <SelectTrigger id="country">
@@ -195,7 +221,7 @@ const Checkout = () => {
                     {errors.country.message}
                   </p>
                 )}
-              </div>
+              </div> */}
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="first-name">First name</Label>
@@ -224,7 +250,7 @@ const Checkout = () => {
                   )}
                 </div>
               </div>
-              <div className="space-y-2">
+              {/* <div className="space-y-2">
                 <Label htmlFor="company">Company (optional)</Label>
                 <Input
                   id="company"
@@ -236,7 +262,7 @@ const Checkout = () => {
                     {errors.company.message}
                   </p>
                 )}
-              </div>
+              </div> */}
               <div className="space-y-2">
                 <Label htmlFor="address">Address</Label>
                 <Input
@@ -250,7 +276,7 @@ const Checkout = () => {
                   </p>
                 )}
               </div>
-              <div className="space-y-2">
+              {/* <div className="space-y-2">
                 <Label htmlFor="apartment">
                   Apartment, suite, etc. (optional)
                 </Label>
@@ -264,13 +290,13 @@ const Checkout = () => {
                     {errors.apartment.message}
                   </p>
                 )}
-              </div>
+              </div> */}
               <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
                 <div className="space-y-2">
                   <Label htmlFor="city">City</Label>
                   <Input id="city" placeholder="City" {...register('city')} />
                 </div>
-                <div className="space-y-2">
+                {/* <div className="space-y-2">
                   <Label htmlFor="state">State</Label>
                   <Select {...register('state')}>
                     <SelectTrigger id="state">
@@ -290,7 +316,7 @@ const Checkout = () => {
                       {errors.state.message}
                     </p>
                   )}
-                </div>
+                </div> */}
                 <div className="space-y-2">
                   <Label htmlFor="pin-code">PIN code</Label>
                   <Input
@@ -305,19 +331,19 @@ const Checkout = () => {
                   )}
                 </div>
               </div>
-              <div className="space-y-2">
+              {/* <div className="space-y-2">
                 <Label htmlFor="phone">Phone</Label>
                 <Input id="phone" placeholder="Phone" {...register('phone')} />
                 {errors.phone && (
                   <p className="text-sm text-red-500">{errors.phone.message}</p>
                 )}
-              </div>
-              <div className="flex items-center space-x-2">
+              </div> */}
+              {/* <div className="flex items-center space-x-2">
                 <Checkbox id="save-info" {...register('saveInfo')} />
                 <label htmlFor="save-info" className="text-sm font-medium">
                   Save this information for next time
                 </label>
-              </div>
+              </div> */}
             </div>
 
             <div className="flex flex-col gap-4 p-4 bg-white border-t border-b border-black lg:py-0 lg:gap-0 border-opacity-15 sm:border-none">
@@ -326,10 +352,13 @@ const Checkout = () => {
                   {' '}
                   Order summary {'(' + cart.totalItems + ')'}
                 </div>
-                <button className="text-[#1773b0]">show</button>
+                {/* <button className="text-[#1773b0]">show</button> */}
               </div>
               <div className="flex items-center gap-4 lg:hidden">
                 <Input type="text" placeholder="Discount code"></Input>
+                <Button className="bg-[#1773b0] hover:bg-[#1773b0] text-white">
+                  Apply
+                </Button>
               </div>
 
               <div className="flex items-center justify-between lg:hidden">
@@ -348,8 +377,11 @@ const Checkout = () => {
                 </div>
               </div>
 
-              <Button className="bg-[#1773b0] " size={'lg'}>
-                Place Order
+              <Button
+                className="bg-[#1773b0] hover:bg-[#1773b0] text-white "
+                size={'lg'}
+              >
+                {isLoading ? 'placing order...' : 'Place order'}
               </Button>
 
               <div className="pt-4 font-light border-t border-black border-opacity-15 sm:border-none">
