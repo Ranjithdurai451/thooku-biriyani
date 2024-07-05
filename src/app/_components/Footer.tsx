@@ -78,7 +78,6 @@ export const Footer = () => {
         </div>
         <div className="flex items-center pt-[10px] gap-3 [&>a>img]:cursor-pointer [&>a>img]:w-[32px] [&>a>img]:h-[32px] [&>a>img]:transition-all [&>a>img]:duration-500 [&>a>img]:rounded-lg">
           <a href="https://www.instagram.com/thooku.biriyani?igsh=cGJ2cGoxbm1jdTB4">
-<<<<<<< HEAD
             <img src="/instagram_icon.svg" className=" " alt="" />
           </a>
           <a href="https://wa.me/917339220695">
@@ -101,12 +100,11 @@ export const Footer = () => {
                 />
               </g>
             </svg> */}
-=======
+            =======
             <img src="instagram_icon.svg" alt="" />
           </a>
           <a href="https://wa.me/917339220695">
             <img src="whatsapp_icon.svg" alt="" />
->>>>>>> abba9f2d121213775b5218199cf5d8ec5946ab80
           </a>
         </div>
       </div>
