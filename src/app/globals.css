@@ -287,7 +287,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 50%;
   display: flex;
   align-items: center;
-  content: '';
+  content: "";
   background-color: #e6e6e6;
   opacity: 0.8;
   border: 2px solid black;
@@ -307,10 +307,14 @@ body {
 }
 .zoom-in {
   animation: zoomIn 2s;
-  animation-delay:1s;
+  animation-delay: 1s;
 }
 .fade-in {
   animation: fadeIn 1s ease-in-out;
+}
+
+.slide-in {
+  animation: slideIn 0.8s ease-in-out;
 }
 @keyframes zoomIn {
   0% {
@@ -329,5 +333,14 @@ body {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
