@@ -1,12 +1,12 @@
-"use client";
-import { Button } from "@/components/ui/button";
-import { clearUser } from "@/Store/Slices/userSlice";
-import { AppDispatch, RootState } from "@/Store/store";
-import Image from "next/image";
-import Link from "next/link";
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../../backend/Actions/actions";
+'use client';
+import { Button } from '@/components/ui/button';
+import { clearUser } from '@/Store/Slices/userSlice';
+import { AppDispatch, RootState } from '@/Store/store';
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../../../backend/Actions/actions';
 
 const page = () => {
   const user = useSelector((state: RootState) => state.user);
@@ -19,8 +19,8 @@ const page = () => {
     setLoading(false);
   }
   return (
-    <div className="min-h-dvh w-full bg-black px-[20px] pt-[90px] pb-[30px] md:px-[40px] flex  flex-col  gap-8">
-      {/* {!user.isAuthenticated && (
+    <div className="min-h-dvh w-dvw bg-black px-[20px] pt-[90px] pb-[30px] md:px-[40px] flex  flex-col  gap-8 justify-center items-center">
+      {!user.isAuthenticated && (
         <Link className="text-customGreen" href="/auth/login">
           Login
         </Link>
@@ -39,18 +39,18 @@ const page = () => {
       )}
       {user.isAuthenticated && (
         <Button onClick={handleLogout}>
-          {loading ? "Logging out..." : "Logout"}
+          {loading ? 'Logging out...' : 'Logout'}
         </Button>
-      )} */}
+      )}
 
-      <h1 className=" text-white text-3xl text-center">Your Profile</h1>
+      {/* <h1 className=" text-white text-3xl text-center">Your Profile</h1>
       <div className="flex gap-8">
         <Image
           className="rounded-full"
           src={user.userInfo.profileImg}
           width={60}
           height={60}
-          alt={""}
+          alt={''}
         />
         <div>
           <p>Hello {user.userInfo.username},</p>
@@ -357,7 +357,7 @@ const page = () => {
             </div>
           </div>
         </section>
-      </div>
+      </div> */}
     </div>
   );
 };
