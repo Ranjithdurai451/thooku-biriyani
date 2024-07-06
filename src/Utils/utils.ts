@@ -7,3 +7,17 @@ export function formatNumberWithCommas(number: number): string {
 
     return formattedString;
 }
+
+export function convertDateFormat(dateString: string): string {
+    // Create a Date object from the input string
+    const date = new Date(dateString);
+
+    // Extract year, month, and day
+    const year = date.getUTCFullYear();
+    // getUTCMonth() returns 0-11, so we add 1 to get 1-12
+    const month = (date.getUTCMonth() + 1).toString().padStart(2, '0');
+    const day = date.getUTCDate().toString().padStart(2, '0');
+
+    // Return the formatted date string
+    return `${year}-${month}-${day}`;
+}

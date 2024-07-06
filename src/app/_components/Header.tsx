@@ -8,8 +8,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { findUser, getUserState } from '../../../backend/Actions/actions';
 import { clearUser, setUserInfo } from '@/Store/Slices/userSlice';
 import { appwriteConfig, databases } from '../../../backend/config';
+import { usePathname } from 'next/navigation';
 
 const Header = () => {
+  const pathname = usePathname();
   const [animate, setAnimate] = useState(false);
   const cart = useSelector((state: RootState) => state.cart);
   const dispatch: AppDispatch = useDispatch();
@@ -31,7 +33,6 @@ const Header = () => {
         appwriteConfig.databaseId,
         appwriteConfig.orderCollectionId
       );
-      console.log(orders);
     }
 
     fetchOrders();
@@ -47,7 +48,6 @@ const Header = () => {
 
       if (user) {
         const userInfo = await findUser({ email: user.email });
-        console.log(userInfo);
         dispatch(
           setUserInfo({
             id: userInfo?.$id,
@@ -106,6 +106,7 @@ const Header = () => {
         <button
           className={`relative ${animate ? 'bump' : ''}`}
           onClick={() => {
+            if (pathname == '/cart') return;
             dispatch(toggleCartModal());
           }}
         >

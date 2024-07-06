@@ -66,7 +66,6 @@ const Checkout = () => {
   });
 
   async function checkoutHandler(data: z.infer<typeof checkoutSchema>) {
-    console.log(user);
     setIsLoading(true);
     const res = await placeOrder({
       cart: cart,
@@ -83,8 +82,6 @@ const Checkout = () => {
 
     router.push('/');
     setIsLoading(false);
-
-    // console.log(data);
   }
 
   return (

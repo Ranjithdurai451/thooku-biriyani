@@ -11,15 +11,20 @@ const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
 
   const shouldShowLayoutComponents = ![
+    '/dashboard',
     '/checkout',
     '/auth/login',
     '/auth/signup',
+    '/dashboard/orders',
+    '/dashboard/customers',
+    '/dashboard/menus',
   ].includes(pathname);
 
   return (
     <ReduxProvider>
       {shouldShowLayoutComponents && <Header />}
       {children}
+
       {shouldShowLayoutComponents && <Footer />}
       {shouldShowLayoutComponents && <SideBar />}
       {shouldShowLayoutComponents && <CartModal />}

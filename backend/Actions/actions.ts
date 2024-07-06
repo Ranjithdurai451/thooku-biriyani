@@ -98,7 +98,6 @@ export async function logout() {
 
   try {
     const user = await account.deleteSession("current");
-    console.log("user", user)
   } catch (error: any) {
     return null;
   }
@@ -118,7 +117,6 @@ export async function placeOrder({
 }) {
 
   try {
-    // console.log(cart, phoneNumber, address, userId)
     const order = await databases.createDocument(appwriteConfig.databaseId, appwriteConfig.orderCollectionId, ID.unique(), {
       cartItems: cart.cartItems.toString()
       ,
@@ -128,12 +126,25 @@ export async function placeOrder({
       address,
       user: userId
     })
-    console.log(order)
     if (!order) throw new Error("Could not create order");
     return order;
   } catch (error: any) {
-    console.log(error)
     return null;
   }
 
 }
+
+
+export const fetchOrders = async () => {
+  try {
+
+    const orders = await databases.listDocuments(appwriteConfig.databaseId, appwriteConfig.orderCollectionId)
+    if (orders.documents.length == 0) throw new Error("Could not fetch orders");
+    return orders.documents;
+
+  } catch (error) {
+
+    return null;
+
+  }
+};

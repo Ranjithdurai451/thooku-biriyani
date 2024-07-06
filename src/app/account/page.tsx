@@ -43,7 +43,7 @@ const page = () => {
         </Button>
       )}
 
-      {/* <h1 className=" text-white text-3xl text-center">Your Profile</h1>
+      <h1 className=" text-white text-3xl text-center">Your Profile</h1>
       <div className="flex gap-8">
         <Image
           className="rounded-full"
@@ -357,7 +357,7 @@ const page = () => {
             </div>
           </div>
         </section>
-      </div> */}
+      </div>
     </div>
   );
 };

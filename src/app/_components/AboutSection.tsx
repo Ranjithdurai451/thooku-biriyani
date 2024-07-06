@@ -14,8 +14,8 @@ const AboutSection = ({ about }: { about: PropType[] }) => {
     >
       <div className="relative flex items-center justify-center py-[30px] md:w-[50%] [&>img]:rounded-md">
         <Image
-          className="absolute h-[100px] w-[150px] md:w-[250px] md:h-[250px] object-cover"
-          style={{ top: 'calc(8px)', left: 'calc(0px)' }}
+          className="absolute h-[100px] w-[150px] md:w-[250px] md:h-[250px] object-cover top-[8px] left-[0px]"
+          // style={{ top: 'calc(8px)', left: 'calc(0px)' }}
           src="/about.jpg"
           alt=""
           width={150}
@@ -31,8 +31,8 @@ const AboutSection = ({ about }: { about: PropType[] }) => {
           quality={25}
         />
         <Image
-          className="absolute h-[150px] w-[150px] md:w-[200px] md:h-[200px] object-cover"
-          style={{ bottom: 'calc(-5px)', right: 'calc(0px )' }}
+          className="absolute h-[150px] w-[150px] md:w-[200px] md:h-[200px] object-cover bottom-[-5px] right-[0px]"
+          // style={{ bottom: 'calc(-5px)', right: 'calc(0px )' }}
           src="/about.jpg"
           alt=""
           width={150}
