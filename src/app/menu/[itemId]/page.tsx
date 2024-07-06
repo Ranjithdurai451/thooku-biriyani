@@ -28,7 +28,7 @@ const ItemPage = async ({ params }: { params: { itemId: string } }) => {
   };
 
   return (
-    <section className="flex w-dvw flex-col gap-6 px-5 py-10 pt-[100px] text-white bg-black md:px-16 md:py-15 min-h-dvh">
+    <section className="flex w-full flex-col gap-6 px-5 py-10 pt-[100px] text-white bg-black md:px-16 md:py-15 min-h-dvw">
       <div className="flex items-center gap-2 ">
         <Link
           href="/"

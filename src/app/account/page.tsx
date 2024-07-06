@@ -19,7 +19,7 @@ const page = () => {
     setLoading(false);
   }
   return (
-    <div className="min-h-dvh w-dvw bg-black px-[20px] pt-[90px] pb-[30px] md:px-[40px] flex  flex-col  gap-8 justify-center items-center">
+    <div className="min-h-dvh w-full  bg-black px-[20px] pt-[90px] pb-[30px] md:px-[40px] flex  flex-col  gap-8 justify-center items-center">
       {!user.isAuthenticated && (
         <Link className="text-customGreen" href="/auth/login">
           Login
