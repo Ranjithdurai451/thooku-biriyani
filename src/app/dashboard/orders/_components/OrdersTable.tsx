@@ -19,12 +19,19 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+// import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useEffect, useState } from 'react';
 import { orderType } from '../page';
 import { convertDateFormat, formatNumberWithCommas } from '@/Utils/utils';
+import { AppDispatch, RootState } from '@/Store/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { setOrderCount, setSelectedOrder } from '@/Store/Slices/dashboardSlice';
 
 const OrdersTable = ({ data }: { data: orderType[] }) => {
+  const selectedOrderId = useSelector(
+    (state: RootState) => state.dashboard.selectedOrder.id
+  );
+  const dispatch: AppDispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const itemsPerPage = 10;
 
@@ -35,7 +42,12 @@ const OrdersTable = ({ data }: { data: orderType[] }) => {
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   const totalPages = Math.ceil(data.length / itemsPerPage);
-
+  useEffect(() => {
+    dispatch(setSelectedOrder(currentItems[0]));
+  }, [currentPage]);
+  useEffect(() => {
+    dispatch(setOrderCount(data.length));
+  }, []);
   return (
     <Card x-chunk="dashboard-05-chunk-3">
       <CardHeader className="px-7">
@@ -57,7 +69,14 @@ const OrdersTable = ({ data }: { data: orderType[] }) => {
           </TableHeader>
           <TableBody>
             {currentItems.map((item) => (
-              <TableRow key={item.id}>
+              <TableRow
+                key={item.id}
+                onClick={() => dispatch(setSelectedOrder(item))}
+                className={` cursor-pointer ${
+                  selectedOrderId === item.id &&
+                  'bg-primary/10 hover:bg-primary/10'
+                }`}
+              >
                 <TableCell>
                   <div className="font-medium">{item.name}</div>
                   <div className="hidden text-sm text-muted-foreground md:inline">

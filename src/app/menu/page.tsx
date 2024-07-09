@@ -9,13 +9,19 @@ export const generateMetadata = () => {
     description: 'Best biryani in India',
   };
 };
-const Menu = async () => {
-  let menuItems: MenuItemType[] = [];
 
+async function fetchMenuItems() {
   const res = await databases.listDocuments(
     appwriteConfig.databaseId,
     appwriteConfig.menuCollectionId
   );
+
+  return res;
+}
+const Menu = async () => {
+  let menuItems: MenuItemType[] = [];
+
+  const res = await fetchMenuItems();
   menuItems = res.documents.map((doc) => ({
     id: doc.$id,
     ...doc,

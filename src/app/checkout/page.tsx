@@ -1,16 +1,10 @@
+/* eslint-disable react/jsx-no-undef */
 'use client';
 import { RootState } from '@/Store/store';
 import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
+
 import { useSelector } from 'react-redux';
 import { formatNumberWithCommas } from '@/Utils/utils';
 import { useState } from 'react';
@@ -20,6 +14,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
 import { placeOrder } from '../../../backend/Actions/actions';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 const Checkout = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
@@ -92,7 +87,7 @@ const Checkout = () => {
           Thooku Biriyani
         </Link>
         <Link className="mr-4" href="/cart">
-          <img src="mobile_cart.svg" alt="" className="w-[25px] h-[25px]" />
+          <Image src="mobile_cart.svg" alt="" width={25} height={25} />
         </Link>
       </div>
       <div className="relative flex flex-col lg:flex-row">
@@ -135,15 +130,19 @@ const Checkout = () => {
           >
             <div className="flex flex-col  gap-5 h-[400px] overflow-scroll custom px-2 py-6">
               {cart.cartItems.map((item) => (
-                <div className="flex items-center justify-between">
+                <div
+                  className="flex items-center justify-between"
+                  key={item.id}
+                >
                   <div className="flex items-center gap-5">
                     <div className="relative rounded-lg">
-                      <img
-                        src={item?.image_url}
-                        className="w-[75px] h-[55px] rounded-lg overflow-visible"
+                      <Image
+                        src={item?.image_url ?? ''}
                         alt=""
+                        width={75}
+                        height={55}
                       />
-                      <span className="absolute top-[-15px] right-[-10px] py-0 px-2  text-white rounded-full bg-primary">
+                      <span className="absolute top-[-15px] right-[-10px] py-0 px-2  text-white rounded-full bg-black">
                         {item?.quantity}
                       </span>
                     </div>

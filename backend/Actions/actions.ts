@@ -118,7 +118,7 @@ export async function placeOrder({
 
   try {
     const order = await databases.createDocument(appwriteConfig.databaseId, appwriteConfig.orderCollectionId, ID.unique(), {
-      cartItems: cart.cartItems.toString()
+      cartItems: JSON.stringify(cart.cartItems)
       ,
       totalItems: cart.totalItems,
       totalAmount: cart.totalAmount,
