@@ -1,5 +1,4 @@
 import { RootState } from '@/Store/store';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
 
@@ -10,25 +9,46 @@ export const Footer = () => {
       id="contact"
       className=" py-[40px] capitalize text-justify flex flex-col  md:flex-row md:justify-around bg-black px-5 pb-[80px] sm:pb-[40px]"
     >
-      <div className="md:w-[300px]">
-        <p className="md:text-[25px]  text-[20px] font-[400] text-customGreen">
-          Sign up with OTP
-        </p>
-        <div className="">
-          <p className="pt-[30px] pb-[15px] text-bg md:text-[16px] text-[14px]">
-            "Discover the flavors of our authentic, mouthwatering biryani by
-            signing up today!"
+      {!user.isAuthenticated && (
+        <div className="md:w-[300px]">
+          <p className="md:text-[25px]  text-[20px] font-[400] text-customGreen">
+            Sign up to order now
           </p>
-          {!user.isAuthenticated && (
+          <div className="">
+            <p className="pt-[30px] pb-[15px] text-bg md:text-[16px] text-[14px]">
+              "Discover the flavors of our authentic, mouthwatering biryani by
+              signing up today!"
+            </p>
+
             <Link
               href="/auth/signup"
               className="px-20 py-2 border capitalize border-customGreen bg-customGreen text-white rounded-[3px] hover:text-customGreen hover:bg-transparent hover:transition-all hover:border "
             >
               sign up
             </Link>
-          )}
+          </div>
         </div>
-      </div>
+      )}
+      {user.isAuthenticated && (
+        <div className="md:w-[300px]">
+          <p className="md:text-[25px]  text-[20px] font-[400] text-customGreen">
+            order now
+          </p>
+          <div className="">
+            <p className="pt-[30px] pb-[15px] text-bg md:text-[16px] text-[14px]">
+              "Discover the flavors of our authentic, mouthwatering biryani by
+              visiting today!"
+            </p>
+
+            <Link
+              href="/menu"
+              className="px-20 py-2 border capitalize border-customGreen bg-customGreen text-white rounded-[3px] hover:text-customGreen hover:bg-transparent hover:transition-all hover:border "
+            >
+              View Menu
+            </Link>
+          </div>
+        </div>
+      )}
       <div>
         <p className="pt-[25px] md:pt-0 md:text-[25px]  text-[20px] font-[400] text-customGreen">
           support links

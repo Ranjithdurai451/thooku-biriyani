@@ -7,8 +7,9 @@ import { useRouter } from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Cart = () => {
-  const navigate = useRouter();
+  const router = useRouter();
   const cart = useSelector((state: RootState) => state.cart);
+  const user = useSelector((state: RootState) => state.user);
   const dispatch: AppDispatch = useDispatch();
   function incrementQuantity(item: cartItemType) {
     const { quantity, ...cartItemWithoutQuantity } = item;
@@ -19,6 +20,11 @@ const Cart = () => {
     const { quantity, ...cartItemWithoutQuantity } = item;
 
     dispatch(removeItem(cartItemWithoutQuantity));
+  }
+
+  function checkoutNavigator() {
+    if (user.isAuthenticated) router.push('/checkout');
+    else router.push('/auth/login');
   }
   return (
     <>
@@ -201,7 +207,7 @@ const Cart = () => {
               <p>Tax included and shipping calculated at checkout</p>
               <button
                 type="button"
-                onClick={() => navigate.push('/checkout')}
+                onClick={checkoutNavigator}
                 disabled={cart.cartItems.length === 0}
                 className="w-full py-3 font-bold duration-300 rounded-full bg-customGreen hover:opacity-80 disabled:opacity-50 disabled:cursor-not-allowed"
               >

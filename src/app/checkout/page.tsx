@@ -7,7 +7,7 @@ import { Label } from '@/components/ui/label';
 
 import { useSelector } from 'react-redux';
 import { formatNumberWithCommas } from '@/Utils/utils';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -16,8 +16,12 @@ import { placeOrder } from '../../../backend/Actions/actions';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 const Checkout = () => {
+  const isAuth = useSelector((state: RootState) => state.user.isAuthenticated);
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  if (!isAuth) {
+    router.push('/auth/login');
+  }
 
   const [errorMsg, setErrMsg] = useState('');
 
@@ -61,7 +65,6 @@ const Checkout = () => {
   });
 
   async function checkoutHandler(data: z.infer<typeof checkoutSchema>) {
-    setIsLoading(true);
     const res = await placeOrder({
       cart: cart,
       phoneNumber: Number(data.phoneNumber),
@@ -75,7 +78,7 @@ const Checkout = () => {
       return;
     }
 
-    router.push('/');
+    router.push('/dashboard/orders');
     setIsLoading(false);
   }
 

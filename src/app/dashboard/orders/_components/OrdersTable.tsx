@@ -1,5 +1,5 @@
 'use client';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, MoreHorizontal } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -26,6 +26,13 @@ import { convertDateFormat, formatNumberWithCommas } from '@/Utils/utils';
 import { AppDispatch, RootState } from '@/Store/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { setOrderCount, setSelectedOrder } from '@/Store/Slices/dashboardSlice';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 const OrdersTable = ({ data }: { data: orderType[] }) => {
   const selectedOrderId = useSelector(
@@ -104,6 +111,21 @@ const OrdersTable = ({ data }: { data: orderType[] }) => {
                 </TableCell>
                 <TableCell className="text-right">
                   ${formatNumberWithCommas(item.totalAmount || 0)}
+                </TableCell>
+                <TableCell>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button aria-haspopup="true" size="icon" variant="ghost">
+                        <MoreHorizontal className="h-4 w-4" />
+                        <span className="sr-only">Toggle menu</span>
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end">
+                      <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                      <DropdownMenuItem>Edit</DropdownMenuItem>
+                      <DropdownMenuItem>Delete</DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </TableCell>
               </TableRow>
             ))}

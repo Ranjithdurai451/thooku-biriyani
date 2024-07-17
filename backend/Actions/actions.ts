@@ -1,6 +1,8 @@
+"use server";
 import { ID, Query } from "appwrite"
 import { account, appwriteConfig, databases, } from "../config"
 import { cartSliceType } from "@/Utils/types"
+import { revalidatePath } from "next/cache";
 
 export async function createUser({
   email,
@@ -83,16 +85,19 @@ export async function login({
   }
 }
 
-export async function getUserState() {
-  try {
-    const user = await account.get();
-
-    if (!user) throw new Error("Could not get user");
-    return user;
-  } catch (error: any) {
-    return null;
-  }
-}
+// export async function getUserState() {
+//   try {
+//     console.log("Working");
+//     const user = await account.get();
+//     console.log("Working");
+//     console.log(user)
+//     if (!user) throw new Error("Could not get user");
+//     return user;
+//   } catch (error: any) {
+//     console.log(error)
+//     return null;
+//   }
+// }
 
 export async function logout() {
 
@@ -126,9 +131,14 @@ export async function placeOrder({
       address,
       user: userId
     })
+
+
+    revalidatePath('/dashboard/orders');
+
     if (!order) throw new Error("Could not create order");
     return order;
   } catch (error: any) {
+    console.log(error)
     return null;
   }
 

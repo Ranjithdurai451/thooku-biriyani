@@ -5,9 +5,9 @@ import { AppDispatch, RootState } from '@/Store/store';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { findUser, getUserState } from '../../../backend/Actions/actions';
+import { findUser } from '../../../backend/Actions/actions';
 import { clearUser, setUserInfo } from '@/Store/Slices/userSlice';
-import { appwriteConfig, databases } from '../../../backend/config';
+import { account, appwriteConfig, databases } from '../../../backend/config';
 import { usePathname } from 'next/navigation';
 
 const Header = () => {
@@ -44,8 +44,7 @@ const Header = () => {
 
   useEffect(() => {
     async function setUser() {
-      const user = await getUserState();
-
+      const user = await account.get();
       if (user) {
         const userInfo = await findUser({ email: user.email });
         dispatch(

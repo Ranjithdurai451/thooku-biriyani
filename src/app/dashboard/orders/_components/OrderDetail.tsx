@@ -32,6 +32,7 @@ import {
   ChevronLeft,
   ChevronRight,
   CircleUser,
+  MoreHorizontal,
 } from 'lucide-react';
 import React from 'react';
 import { useSelector } from 'react-redux';
@@ -70,16 +71,15 @@ const OrderDetail = () => {
         </div>{' '}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button size="icon" variant="outline" className="h-8 w-8">
-              <MoreVertical className="h-3.5 w-3.5" />
-              <span className="sr-only">More</span>
+            <Button aria-haspopup="true" size="icon" variant="ghost">
+              <MoreHorizontal className="h-4 w-4" />
+              <span className="sr-only">Toggle menu</span>
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
+            <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem>Edit</DropdownMenuItem>
-            <DropdownMenuItem>Export</DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Trash</DropdownMenuItem>
+            <DropdownMenuItem>Delete</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </CardHeader>

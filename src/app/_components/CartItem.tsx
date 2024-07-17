@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 
 const CartItem = ({ item }: { item: cartItemType }) => {
   const dispatch: AppDispatch = useDispatch();
+
   function incrementQuantity() {
     const { quantity, ...cartItemWithoutQuantity } = item;
     dispatch(addItem(cartItemWithoutQuantity));
