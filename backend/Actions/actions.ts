@@ -1,4 +1,3 @@
-"use server"
 import { ID, Query } from "appwrite"
 import { account, appwriteConfig, databases, } from "../config"
 import { cartSliceType } from "@/Utils/types"
@@ -84,7 +83,7 @@ export async function login({
 
     return session;
   } catch (error: any) {
-    console.log(error)
+    // console.log(error)
     return error.response;
   }
 }
@@ -113,40 +112,7 @@ export async function login({
 // }
 
 
-export async function placeOrder({
-  cart,
-  phoneNumber,
-  address,
-  userId
-}: {
-  cart: cartSliceType,
-  phoneNumber: number,
-  address: string,
-  userId: string
-}) {
 
-  try {
-    const order = await databases.createDocument(appwriteConfig.databaseId, appwriteConfig.orderCollectionId, ID.unique(), {
-      cartItems: JSON.stringify(cart.cartItems)
-      ,
-      totalItems: cart.totalItems,
-      totalAmount: cart.totalAmount,
-      phoneNumber,
-      address,
-      user: userId
-    })
-
-
-    revalidatePath('/dashboard/orders');
-
-    if (!order) throw new Error("Could not create order");
-    return order;
-  } catch (error: any) {
-    console.log(error)
-    return null;
-  }
-
-}
 
 
 export const fetchOrders = async () => {

@@ -67,8 +67,9 @@ const Login = () => {
       email: data.email,
       password: data.password,
     });
-    console.log(loginAction);
-
+    // console.log(loginAction);
+    const user = await account.get();
+    console.log(user);
     if (loginAction?.message) {
       setErrorMsg(loginAction?.message);
       setTimeout(() => {

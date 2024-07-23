@@ -12,7 +12,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
-import { placeOrder } from '../../../backend/Actions/actions';
+import { placeOrder } from '../../../backend/Actions/serverActions';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 const Checkout = () => {
@@ -65,6 +65,7 @@ const Checkout = () => {
   });
 
   async function checkoutHandler(data: z.infer<typeof checkoutSchema>) {
+    setIsLoading(true);
     const res = await placeOrder({
       cart: cart,
       phoneNumber: Number(data.phoneNumber),
