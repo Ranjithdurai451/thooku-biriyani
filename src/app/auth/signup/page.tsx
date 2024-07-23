@@ -35,7 +35,7 @@ const signupSchema = z.object({
   password: z
     .string()
     .nonempty({ message: 'Password is required' })
-    .min(6, { message: 'Password must be at least 6 characters' }),
+    .min(8, { message: 'Password must be at least 8 characters' }),
 });
 
 type signUpSchemaType = z.infer<typeof signupSchema>;

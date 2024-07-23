@@ -30,7 +30,7 @@ const loginSchema = z.object({
   password: z
     .string()
     .nonempty({ message: 'Password is required' })
-    .min(6, { message: 'Password must be at least 6 characters' }),
+    .min(8, { message: 'Password must be at least 8 characters' }),
 });
 type loginSchemaType = z.infer<typeof loginSchema>;
 const Login = () => {
@@ -67,7 +67,16 @@ const Login = () => {
       email: data.email,
       password: data.password,
     });
+    console.log(loginAction);
 
+    if (loginAction?.message) {
+      setErrorMsg(loginAction?.message);
+      setTimeout(() => {
+        setErrorMsg('');
+      }, 3000);
+      setIsPending(false);
+      return;
+    }
     if (loginAction) {
       const userInfo = await findUser({ email: data.email });
       dispatch(
@@ -81,8 +90,6 @@ const Login = () => {
       router.push('/');
       setIsPending(false);
     } else {
-      setErrorMsg('Something went wrong');
-      setIsPending(false);
     }
   }
 

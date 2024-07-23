@@ -8,7 +8,6 @@ client
 
 const databases = new Databases(client);
 const account = new Account(client);
-const avatars = new Avatars(client);
 
 export const appwriteConfig = {
   menuCollectionId: "66852d590015fc9f651c",

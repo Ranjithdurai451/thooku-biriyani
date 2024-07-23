@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import ReduxProvider from '@/Store/ReduxProvider';
 import CartModal from './CartModal';
 import { SideBar } from './SideBar';
+import InitialLoader from './InnitialLoader';
 
 const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
@@ -22,6 +23,7 @@ const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <ReduxProvider>
+      <InitialLoader />
       {shouldShowLayoutComponents && <Header />}
       {children}
 

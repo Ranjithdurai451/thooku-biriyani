@@ -45,8 +45,9 @@ const Header = () => {
   useEffect(() => {
     async function setUser() {
       const user = await account.get();
+
       if (user) {
-        const userInfo = await findUser({ email: user.email });
+        const userInfo = await findUser({ email: user?.email });
         dispatch(
           setUserInfo({
             id: userInfo?.$id,

@@ -21,3 +21,4 @@ export function convertDateFormat(dateString: string): string {
     // Return the formatted date string
     return `${year}-${month}-${day}`;
 }
+export const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));

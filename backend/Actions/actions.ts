@@ -1,4 +1,4 @@
-"use server";
+"use server"
 import { ID, Query } from "appwrite"
 import { account, appwriteConfig, databases, } from "../config"
 import { cartSliceType } from "@/Utils/types"
@@ -26,6 +26,7 @@ export async function createUser({
     if (!user) throw new Error("Could not create user");
     return user;
   } catch (error) {
+    console.log(error);
     return null;
   }
 }
@@ -41,6 +42,7 @@ export async function findUser({ email }: { email: string }) {
     if (!user.documents[0]) throw new Error("Could not find user");
     return user.documents[0];
   } catch (error) {
+    // console.log(error);
     return null;
   }
 }
@@ -65,6 +67,7 @@ export async function signUp({
 
     return session;
   } catch (error: any) {
+    console.log(error);
     return null;
   }
 }
@@ -78,35 +81,36 @@ export async function login({
 }) {
   try {
     const session = await account.createEmailPasswordSession(email, password);
-    if (!session) throw new Error("Could not create session");
+
     return session;
   } catch (error: any) {
-    return null;
+    console.log(error)
+    return error.response;
   }
 }
 
 // export async function getUserState() {
+
 //   try {
-//     console.log("Working");
 //     const user = await account.get();
-//     console.log("Working");
-//     console.log(user)
-//     if (!user) throw new Error("Could not get user");
+//     console.log("user", user)
 //     return user;
 //   } catch (error: any) {
-//     console.log(error)
 //     return null;
 //   }
 // }
 
-export async function logout() {
+// export async function logout() {
 
-  try {
-    const user = await account.deleteSession("current");
-  } catch (error: any) {
-    return null;
-  }
-}
+//   try {
+//     const user = await account.deleteSession("current");
+//     console.log("logout", user)
+//   } catch (error: any) {
+//     console.log(error)
+//     return null;
+
+//   }
+// }
 
 
 export async function placeOrder({
@@ -154,6 +158,7 @@ export const fetchOrders = async () => {
 
   } catch (error) {
 
+    console.log(error)
     return null;
 
   }
