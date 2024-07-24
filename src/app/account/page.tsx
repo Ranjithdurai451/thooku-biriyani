@@ -22,12 +22,25 @@ import { account } from '../../../backend/config';
 
 const page = () => {
   const user = useSelector((state: RootState) => state.user);
+  // useEffect(() => {
+  //   async function getUser() {
+  //     try {
+  //       const user = await account.get();
+  //       console.log(user);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  //   getUser();
+  // }, []);
+
   const router = useRouter();
   useEffect(() => {
-    if (!user.isAuthenticated) {
-      // router.push('/auth/login');
-    }
-  }, [user.isAuthenticated, router]);
+    console.log('userInfo', user);
+    // if (!user.isAuthenticated) {
+    //   router.push('/auth/login');
+    // }
+  }, []);
   const dispatch: AppDispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   async function handleLogout() {
@@ -41,8 +54,13 @@ const page = () => {
     setLoading(false);
   }
   if (!user.isAuthenticated) {
-    return null;
+    return (
+      <div className="h-dvh w-full bg-black flex justify-center items-center">
+        <Button>Login</Button>
+      </div>
+    );
   }
+
   return (
     <div className="h-dvh w-full flex  pt-[100px] px-[30px] items-center bg-black ">
       <Card className="p-[20px] rounded-xl h-fit flex flex-col gap-4 items-center relative   ">

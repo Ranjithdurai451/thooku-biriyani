@@ -1,7 +1,6 @@
 import { ID, Query } from "appwrite"
 import { account, appwriteConfig, databases, } from "../config"
-import { cartSliceType } from "@/Utils/types"
-import { revalidatePath } from "next/cache";
+
 
 export async function createUser({
   email,

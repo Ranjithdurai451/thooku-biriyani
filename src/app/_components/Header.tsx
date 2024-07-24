@@ -43,28 +43,6 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    async function setUser() {
-      const user = await account.get();
-
-      if (user) {
-        const userInfo = await findUser({ email: user?.email });
-        dispatch(
-          setUserInfo({
-            id: userInfo?.$id,
-            username: userInfo?.username,
-            email: userInfo?.email,
-            profileImg: userInfo?.profileImg,
-          })
-        );
-      } else {
-        dispatch(clearUser());
-      }
-    }
-
-    setUser();
-  }, []);
-
-  useEffect(() => {
     if (cart.cartItems.length == 0) return;
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
