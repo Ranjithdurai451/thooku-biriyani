@@ -30,6 +30,7 @@ export default function InitialLoader() {
           })
         );
       } catch (error) {
+        dispatch(clearUser());
         console.error('Error fetching user data:', error);
       } finally {
         await delay(500);

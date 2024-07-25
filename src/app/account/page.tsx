@@ -22,17 +22,6 @@ import { account } from '../../../backend/config';
 
 const page = () => {
   const user = useSelector((state: RootState) => state.user);
-  // useEffect(() => {
-  //   async function getUser() {
-  //     try {
-  //       const user = await account.get();
-  //       console.log(user);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   }
-  //   getUser();
-  // }, []);
 
   const router = useRouter();
   useEffect(() => {
@@ -56,7 +45,7 @@ const page = () => {
   if (!user.isAuthenticated) {
     return (
       <div className="h-dvh w-full bg-black flex justify-center items-center">
-        <Button>Login</Button>
+        <Button onClick={() => router.push('/auth/login')}>Login</Button>
       </div>
     );
   }
