@@ -96,11 +96,11 @@ const Login = () => {
 
   return (
     <form onSubmit={handleSubmit(submitHandler)}>
-      <Card className="sm:w-[360px] mx-auto">
+      <Card className="sm:w-[320px] w-[95dvw] max-w-[320px] border-opacity-15">
         <CardHeader>
-          <CardTitle className="text-2xl ">Login</CardTitle>
+          <CardTitle className="text-2xl text-customGreen ">Login</CardTitle>
           <CardDescription>
-            Enter your email below to login to your account
+            Sign in with email address and password
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -122,7 +122,7 @@ const Login = () => {
                 <Label htmlFor="password">Password</Label>
                 <Link
                   href="/forgot-password"
-                  className="inline-block ml-auto text-xs underline"
+                  className="inline-block ml-auto text-xs underline text-customGreen"
                 >
                   Forgot your password?
                 </Link>
@@ -137,7 +137,7 @@ const Login = () => {
             {errorMsg && <p className="text-xs text-red-500">{errorMsg}</p>}
             <Button
               type="submit"
-              className="w-full disabled:cursor-not-allowed disabled:opacity-45"
+              className="w-full disabled:cursor-not-allowed disabled:opacity-45 bg-customGreen text-white hover:bg-green-700 duration-200"
               disabled={isPending}
             >
               {isPending ? 'Logging in...' : 'Login'}

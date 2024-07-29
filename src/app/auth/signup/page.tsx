@@ -95,17 +95,17 @@ const SignUp = () => {
   }
 
   return (
-    <Card className="mx-auto sm:w-[360px] ">
+    <Card className="mx-auto sm:w-[340px]  w-[95dvw] max-w-[340px] border-opacity-15">
       <form onSubmit={handleSubmit(submitHandler)}>
         <CardHeader>
-          <CardTitle className="text-2xl ">Sign Up</CardTitle>
+          <CardTitle className="text-2xl text-customGreen ">Sign Up</CardTitle>
           <CardDescription>
             Enter your information to create an account
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid gap-2">
-            <div className="grid gap-2">
+          <div className="grid gap-1">
+            <div className="grid gap-1">
               <Label htmlFor="username">Username</Label>
               <Input
                 id="username"
@@ -119,7 +119,7 @@ const SignUp = () => {
                 </p>
               )}
             </div>
-            <div className="grid gap-2">
+            <div className="grid gap-1">
               <Label htmlFor="email">Email</Label>
               <Input
                 id="email"
@@ -131,7 +131,7 @@ const SignUp = () => {
                 <p className="text-xs text-red-500">{errors.email.message}</p>
               )}
             </div>
-            <div className="grid gap-2">
+            <div className="grid gap-1">
               <Label htmlFor="password">Password</Label>
               <Input id="password" type="password" {...register('password')} />
               {errors.password && (
@@ -143,7 +143,7 @@ const SignUp = () => {
             {errorMsg && <p className="text-sm text-red-500">{errorMsg}</p>}
             <Button
               type="submit"
-              className="w-full disabled:cursor-not-allowed disabled:opacity-50"
+              className="w-full disabled:cursor-not-allowed disabled:opacity-45 bg-customGreen text-white hover:bg-green-700 duration-200 mt-2"
               disabled={isPending}
             >
               {isPending ? 'Signing up...' : 'Sign Up'}
