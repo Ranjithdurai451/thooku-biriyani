@@ -43,6 +43,7 @@ const Login = () => {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm<loginSchemaType>({
     resolver: zodResolver(loginSchema),
 
@@ -68,14 +69,16 @@ const Login = () => {
       password: data.password,
     });
     // console.log(loginAction);
-    const user = await account.get();
-    console.log(user);
+    // const user = await account.get();
+    // console.log(user);
     if (loginAction?.message) {
+      setIsPending(false);
+      // console.log('working');
+      reset();
       setErrorMsg(loginAction?.message);
       setTimeout(() => {
         setErrorMsg('');
-      }, 3000);
-      setIsPending(false);
+      }, 5000);
       return;
     }
     if (loginAction) {

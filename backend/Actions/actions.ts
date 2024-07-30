@@ -82,7 +82,7 @@ export async function login({
 
     return session;
   } catch (error: any) {
-    // console.log(error)
+    console.log(error)
     return error.response;
   }
 }
