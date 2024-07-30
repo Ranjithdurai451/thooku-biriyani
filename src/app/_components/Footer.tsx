@@ -16,7 +16,7 @@ export const Footer = () => {
           </p>
           <div className="">
             <p className="pt-[30px] pb-[15px] text-bg md:text-[16px] text-[14px]">
-              "Discover the flavors of our authentic, mouthwatering biryani by
+              "Discover the flavors of our authentic, mouthwatering biriyani by
               signing up today!"
             </p>
 
@@ -36,7 +36,7 @@ export const Footer = () => {
           </p>
           <div className="">
             <p className="pt-[30px] pb-[15px] text-bg md:text-[16px] text-[14px]">
-              "Discover the flavors of our authentic, mouthwatering biryani by
+              "Discover the flavors of our authentic, mouthwatering biriyani by
               visiting today!"
             </p>
 
