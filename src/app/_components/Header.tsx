@@ -78,7 +78,7 @@ const Header = () => {
           <span className="text-[18px] text-customGreen md:text-[22px]">
             THOOKU
           </span>
-          <span className="text-[16px] text-white md:text-[18px]">BIRYANI</span>
+          <span className="text-[16px] text-white md:text-[18px]">BIRIYANI</span>
         </Link>
 
         <button
