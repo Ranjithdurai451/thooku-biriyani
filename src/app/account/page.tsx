@@ -26,9 +26,9 @@ const page = () => {
   const router = useRouter();
   useEffect(() => {
     console.log('userInfo', user);
-    // if (!user.isAuthenticated) {
-    //   router.push('/auth/login');
-    // }
+    if (!user.isAuthenticated) {
+      router.push('/auth/login');
+    }
   }, []);
   const dispatch: AppDispatch = useDispatch();
   const [loading, setLoading] = useState(false);
