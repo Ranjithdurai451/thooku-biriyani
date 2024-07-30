@@ -23,6 +23,10 @@ const Cart = () => {
   }
 
   function checkoutNavigator() {
+    if (!user.isAuthenticated) {
+      alert('Please login first');
+      return;
+    }
     router.push('/checkout');
   }
   return (
@@ -207,7 +211,7 @@ const Cart = () => {
               <button
                 type="button"
                 onClick={checkoutNavigator}
-                disabled={cart.cartItems.length === 0 || user.isAuthenticated}
+                disabled={cart.cartItems.length === 0}
                 className="w-full py-3 font-bold duration-300 rounded-full bg-customGreen hover:opacity-80 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Checkout

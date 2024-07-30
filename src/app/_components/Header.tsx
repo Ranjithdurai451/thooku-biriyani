@@ -9,6 +9,7 @@ import { findUser } from '../../../backend/Actions/actions';
 import { clearUser, setUserInfo } from '@/Store/Slices/userSlice';
 import { account, appwriteConfig, databases } from '../../../backend/config';
 import { usePathname } from 'next/navigation';
+import CartModal from './CartModal';
 
 const Header = () => {
   const pathname = usePathname();
@@ -78,7 +79,9 @@ const Header = () => {
           <span className="text-[18px] text-customGreen md:text-[22px]">
             THOOKU
           </span>
-          <span className="text-[16px] text-white md:text-[18px]">BIRIYANI</span>
+          <span className="text-[16px] text-white md:text-[18px]">
+            BIRIYANI
+          </span>
         </Link>
 
         <button
@@ -111,6 +114,7 @@ const Header = () => {
           </span>
         </button>
       </header>
+      <CartModal />
     </>
   );
 };

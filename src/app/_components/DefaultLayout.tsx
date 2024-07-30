@@ -29,7 +29,6 @@ const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
 
       {shouldShowLayoutComponents && <Footer />}
       {shouldShowLayoutComponents && <SideBar />}
-      {shouldShowLayoutComponents && <CartModal />}
     </ReduxProvider>
   );
 };

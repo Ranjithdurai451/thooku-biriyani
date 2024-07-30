@@ -51,6 +51,7 @@ const SignUp = () => {
     handleSubmit,
     formState: { errors },
     register,
+    reset,
   } = useForm<signUpSchemaType>({
     resolver: zodResolver(signupSchema),
     defaultValues: {
@@ -76,6 +77,15 @@ const SignUp = () => {
       username: data.username,
       password: data.password,
     });
+    if (signupAction?.message) {
+      setIsPending(false);
+      reset();
+      setErrorMsg(signupAction?.message);
+      setTimeout(() => {
+        setErrorMsg('');
+      }, 5000);
+      return;
+    }
     if (signupAction) {
       const userInfo = await findUser({ email: data.email });
       dispatch(
@@ -87,9 +97,6 @@ const SignUp = () => {
         })
       );
       router.push('/');
-      setIsPending(false);
-    } else {
-      setErrorMsg('Something went wrong');
       setIsPending(false);
     }
   }

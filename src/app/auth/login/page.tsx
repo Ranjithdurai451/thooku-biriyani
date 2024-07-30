@@ -9,13 +9,12 @@ import {
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { joiResolver } from '@hookform/resolvers/joi';
+// import { joiResolver } from '@hookform/resolvers/joi';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { account } from '../../../../backend/config';
 import { useRouter } from 'next/navigation';
 import { findUser, login } from '../../../../backend/Actions/actions';
 import { AppDispatch } from '@/Store/store';
@@ -68,12 +67,8 @@ const Login = () => {
       email: data.email,
       password: data.password,
     });
-    // console.log(loginAction);
-    // const user = await account.get();
-    // console.log(user);
     if (loginAction?.message) {
       setIsPending(false);
-      // console.log('working');
       reset();
       setErrorMsg(loginAction?.message);
       setTimeout(() => {
@@ -91,11 +86,14 @@ const Login = () => {
           profileImg: userInfo?.profileImg,
         })
       );
-      router.push('/');
+      router.replace('/');
       setIsPending(false);
-    } else {
     }
   }
+
+  // async function submitHandler(data: loginSchemaType) {
+  //   router.replace('/');
+  // }
 
   return (
     <form onSubmit={handleSubmit(submitHandler)}>

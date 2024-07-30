@@ -61,12 +61,11 @@ export async function signUp({
     const session = await account.createEmailPasswordSession(email, password);
     createUser({ email, username });
 
-    if (!session) throw new Error("Could not create session");
 
     return session;
   } catch (error: any) {
     console.log(error);
-    return null;
+    return error.response;
   }
 }
 
