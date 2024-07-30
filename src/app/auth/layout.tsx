@@ -12,12 +12,12 @@ const layout = ({ children }: { children: React.ReactNode }) => {
     {
       imageUrl: '/chicken_combo.jpg',
       title: 'Spice Up Your Meal!',
-      desc: 'Enjoy our Chicken Biryani Family Combo with Chicken 65 and tasty sides. Perfect for family moments.',
+      desc: 'Enjoy our Chicken Biriyani Family Combo with Chicken 65 and tasty sides. Perfect for family moments.',
     },
     {
       imageUrl: '/prawn_combo.jpg',
       title: 'Seafood Delight Awaits!',
-      desc: 'Savor our Prawn Biryani Family Combo. Juicy prawns, flavorful biryani, and sides for a seafood treat.',
+      desc: 'Savor our Prawn Biriyani Family Combo. Juicy prawns, flavorful biriyani, and sides for a seafood treat.',
     },
     {
       imageUrl: '/add_ons.jpg',
