@@ -116,15 +116,14 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
           ))}
         </div>
       </div>
+      
 
       <div className={styles.embla__dots}>
         {scrollSnaps.map((_, index) => (
           <DotButton
             key={index}
             onClick={() => onDotButtonClick(index)}
-            className={`${styles.embla__dot}.concat(
-              index === selectedIndex ? ' bg-white' : ''
-            )`}
+            className={` embla__dot ${index==selectedIndex ? "embla__dot__active":""}`}
           />
         ))}
       </div>

@@ -24,12 +24,12 @@ const page = () => {
   const user = useSelector((state: RootState) => state.user);
 
   const router = useRouter();
-  useEffect(() => {
-    console.log('userInfo', user);
-    if (!user.isAuthenticated) {
-      router.push('/auth/login');
-    }
-  }, []);
+  // useEffect(() => {
+  //   console.log('userInfo', user);
+  //   if (!user.isAuthenticated) {
+  //     router.push('/auth/login');
+  //   }
+  // }, []);
   const dispatch: AppDispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   async function handleLogout() {
