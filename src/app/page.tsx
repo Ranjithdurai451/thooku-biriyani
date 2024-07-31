@@ -32,6 +32,7 @@ export default function Home() {
   ];
   return (
     <>
+    {/* <div className='home w-full h-dvh bg-red-400'></div> */}
       <EmblaCarousel slides={slides} />
       <AboutSection about={about} />
       <MenuSection />
