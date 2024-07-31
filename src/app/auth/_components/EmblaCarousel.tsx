@@ -1,6 +1,6 @@
 'use client';
 import React, { useCallback, useEffect, useRef } from 'react';
-import styles from "../custom.module.css";
+import styles from "../Custom.module.css";
 import {
   EmblaCarouselType,
   EmblaEventType,
