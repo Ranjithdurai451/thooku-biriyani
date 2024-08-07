@@ -5,6 +5,7 @@ import { cartItemType } from '@/lib/types';
 import { formatNumberWithCommas } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux';
+import LoginModal from '../_components/LoginModal';
 
 const Cart = () => {
   const router = useRouter();
@@ -23,10 +24,6 @@ const Cart = () => {
   }
 
   function checkoutNavigator() {
-    if (!user.isAuthenticated) {
-      alert('Please login first');
-      return;
-    }
     router.push('/checkout');
   }
   return (
@@ -208,14 +205,27 @@ const Cart = () => {
                 <div>Rs. {formatNumberWithCommas(cart.totalAmount)}</div>
               </div>
               <p>Tax included and shipping calculated at checkout</p>
-              <button
-                type="button"
-                onClick={checkoutNavigator}
-                disabled={cart.cartItems.length === 0}
-                className="w-full py-3 font-bold duration-300 rounded-full bg-customGreen hover:opacity-80 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                Checkout
-              </button>
+              {user.isAuthenticated ? (
+                <button
+                  type="button"
+                  onClick={checkoutNavigator}
+                  disabled={cart.cartItems.length === 0}
+                  className="w-full py-3 font-bold duration-300 rounded-full bg-customGreen hover:opacity-80 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Checkout
+                </button>
+              ) : (
+                <LoginModal>
+                  <button
+                    type="button"
+                    // onClick={checkoutNavigator}
+                    disabled={cart.cartItems.length === 0}
+                    className="w-full py-3 font-bold duration-300 rounded-full bg-customGreen hover:opacity-80 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    Checkout
+                  </button>
+                </LoginModal>
+              )}
             </div>
           </div>
         </div>

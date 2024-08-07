@@ -38,6 +38,7 @@ const page = () => {
     dispatch(clearUser());
     try {
       await account.deleteSession('current');
+      router.push('/');
     } catch (error) {
       console.log(error);
     }

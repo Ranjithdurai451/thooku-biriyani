@@ -32,13 +32,16 @@ const LoginModal = ({ children }: { children: React.ReactNode }) => {
           personalized recommendations.
         </DialogDescription>
 
-        <button className="w-full px-4 py-2 rounded-lg disabled:cursor-not-allowed disabled:opacity-45 bg-customGreen text-white hover:bg-green-700 duration-200">
+        <Link
+          href={'/auth/login'}
+          className="w-full text-center px-4 py-2 rounded-lg disabled:cursor-not-allowed disabled:opacity-45 bg-customGreen text-white hover:bg-green-700 duration-200"
+        >
           Login
-        </button>
-        <div className=" text-sm text-center">
-          Already have an account?{' '}
-          <Link href="/auth/login" className="underline text-customGreen">
-            Sign in
+        </Link>
+        <div className=" text-md text-center">
+          Don&apos;t have an account?{' '}
+          <Link href="/auth/signup" className="underline text-customGreen">
+            Sign up
           </Link>
         </div>
       </DialogContent>
