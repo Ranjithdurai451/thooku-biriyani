@@ -1,8 +1,8 @@
 'use client';
 import { addItem, deleteItem, removeItem } from '@/Store/Slices/cartSlice';
 import { AppDispatch, RootState } from '@/Store/store';
-import { cartItemType } from '@/Utils/types';
-import { formatNumberWithCommas } from '@/Utils/utils';
+import { cartItemType } from '@/lib/types';
+import { formatNumberWithCommas } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux';
 

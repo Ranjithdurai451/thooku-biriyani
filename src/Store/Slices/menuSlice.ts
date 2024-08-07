@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { MenuItemType } from "../../Utils/types";
+import { MenuItemType } from "../../lib/types";
 
 
 const initialState: {

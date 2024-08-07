@@ -1,7 +1,7 @@
 import OrdersTable from './_components/OrdersTable';
 import { fetchOrders } from '../../../../backend/Actions/actions';
 import OrderDetail from './_components/OrderDetail';
-import { cartItemType } from '@/Utils/types';
+import { cartItemType } from '@/lib/types';
 
 export type orderType = {
   id: string;

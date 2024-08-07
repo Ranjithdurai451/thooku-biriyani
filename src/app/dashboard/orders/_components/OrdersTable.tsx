@@ -22,7 +22,7 @@ import {
 // import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useEffect, useState } from 'react';
 import { orderType } from '../page';
-import { convertDateFormat, formatNumberWithCommas } from '@/Utils/utils';
+import { convertDateFormat, formatNumberWithCommas } from '@/lib/utils';
 import { AppDispatch, RootState } from '@/Store/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { setOrderCount, setSelectedOrder } from '@/Store/Slices/dashboardSlice';

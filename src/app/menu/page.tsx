@@ -1,4 +1,4 @@
-import { MenuItemType } from '@/Utils/types';
+import { MenuItemType } from '@/lib/types';
 import { appwriteConfig, databases } from '../../../backend/config';
 import CategorySelector from './_components/CategorySelector';
 export const dynamic = 'force-static';

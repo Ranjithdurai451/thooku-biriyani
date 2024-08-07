@@ -1,5 +1,5 @@
 'use client';
-import { MenuItemType } from '@/Utils/types';
+import { MenuItemType } from '@/lib/types';
 import React, { useState } from 'react';
 import MenuItem from './MenuItem';
 

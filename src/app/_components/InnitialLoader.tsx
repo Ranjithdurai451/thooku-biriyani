@@ -5,7 +5,7 @@ import { useEffect, useState, useTransition } from 'react';
 import { findUser } from '../../../backend/Actions/actions';
 import { account } from '../../../backend/config';
 import { useDispatch } from 'react-redux';
-import { delay } from '@/Utils/utils';
+import { delay } from '@/lib/utils';
 
 export default function InitialLoader() {
   const dispatch = useDispatch();

@@ -23,7 +23,7 @@ import {
 } from '@/components/ui/pagination';
 import { Separator } from '@/components/ui/separator';
 import { RootState } from '@/Store/store';
-import { convertDateFormat, formatNumberWithCommas } from '@/Utils/utils';
+import { convertDateFormat, formatNumberWithCommas } from '@/lib/utils';
 
 import {
   Copy,

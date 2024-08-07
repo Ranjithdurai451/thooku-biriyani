@@ -1,12 +1,12 @@
 'use client';
 import { addItem } from '@/Store/Slices/cartSlice';
 import { AppDispatch, RootState } from '@/Store/store';
-import { MenuItemType } from '@/Utils/types';
+import { MenuItemType } from '@/lib/types';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { formatNumberWithCommas } from '@/Utils/utils';
+import { formatNumberWithCommas } from '@/lib/utils';
 const MenuItemOperations = ({ item }: { item: MenuItemType }) => {
   const [quantity, setQuantity] = useState<number>(1);
 

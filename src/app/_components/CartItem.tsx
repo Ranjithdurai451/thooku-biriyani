@@ -2,8 +2,8 @@
 
 import { addItem, deleteItem, removeItem } from '@/Store/Slices/cartSlice';
 import { AppDispatch } from '@/Store/store';
-import { cartItemType } from '@/Utils/types';
-import { formatNumberWithCommas } from '@/Utils/utils';
+import { cartItemType } from '@/lib/types';
+import { formatNumberWithCommas } from '@/lib/utils';
 import { useDispatch } from 'react-redux';
 
 const CartItem = ({ item }: { item: cartItemType }) => {

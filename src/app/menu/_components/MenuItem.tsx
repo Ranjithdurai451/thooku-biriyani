@@ -1,8 +1,8 @@
 'use client';
 import { addItem } from '@/Store/Slices/cartSlice';
 import { AppDispatch } from '@/Store/store';
-import { MenuItemType } from '@/Utils/types';
-import { formatNumberWithCommas } from '@/Utils/utils';
+import { MenuItemType } from '@/lib/types';
+import { formatNumberWithCommas } from '@/lib/utils';
 import Link from 'next/link';
 import { useDispatch } from 'react-redux';
 

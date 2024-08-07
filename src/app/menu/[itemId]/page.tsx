@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { appwriteConfig, databases } from '../../../../backend/config';
-import { MenuItemType } from '@/Utils/types';
+import { MenuItemType } from '@/lib/types';
 import MenuItemOperations from './_components/MenuItemOperations';
 export const dynamic = 'force-static';
 

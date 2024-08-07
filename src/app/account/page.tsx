@@ -19,17 +19,18 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { CircleUser, MoreHorizontal, MoreVertical } from 'lucide-react';
 import { account } from '../../../backend/config';
+import LoginModal from '../_components/LoginModal';
 
 const page = () => {
   const user = useSelector((state: RootState) => state.user);
 
   const router = useRouter();
-  useEffect(() => {
-    console.log('userInfo', user);
-    if (!user.isAuthenticated) {
-      router.push('/auth/login');
-    }
-  }, []);
+  // useEffect(() => {
+  //   console.log('userInfo', user);
+  //   if (!user.isAuthenticated) {
+  //     router.push('/auth/login');
+  //   }
+  // }, []);
   const dispatch: AppDispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   async function handleLogout() {
@@ -42,13 +43,14 @@ const page = () => {
     }
     setLoading(false);
   }
-  if (!user.isAuthenticated) {
-    return (
-      <div className="h-dvh w-full bg-black flex justify-center items-center">
-        <Button onClick={() => router.push('/auth/login')}>Login</Button>
-      </div>
-    );
-  }
+  // if (!user.isAuthenticated) {
+  //   return (
+  //     <div className="h-dvh w-full bg-black flex justify-center items-center">
+  //       {/* <Button onClick={() => router.push('/auth/login')}>Login</Button> */}
+  //       <LoginModal />
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="h-dvh w-full flex  pt-[100px] px-[30px] items-center bg-black ">

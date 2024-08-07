@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
 import { useSelector } from 'react-redux';
-import { formatNumberWithCommas } from '@/Utils/utils';
+import { formatNumberWithCommas } from '@/lib/utils';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';

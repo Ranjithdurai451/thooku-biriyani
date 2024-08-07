@@ -1,5 +1,5 @@
 "use server";
-import { cartSliceType } from "@/Utils/types";
+import { cartSliceType } from "@/lib/types";
 import { ID } from "appwrite";
 import { revalidatePath } from "next/cache";
 import { databases, appwriteConfig } from "../config";

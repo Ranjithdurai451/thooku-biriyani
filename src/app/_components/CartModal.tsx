@@ -2,7 +2,7 @@
 
 import { toggleCartModal } from '@/Store/Slices/cartSlice';
 import { AppDispatch, RootState } from '@/Store/store';
-import { formatNumberWithCommas } from '@/Utils/utils';
+import { formatNumberWithCommas } from '@/lib/utils';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CartItem from './CartItem';
