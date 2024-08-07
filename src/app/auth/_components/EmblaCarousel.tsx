@@ -1,5 +1,6 @@
 'use client';
 import React, { useCallback, useEffect, useRef } from 'react';
+import styles from "../Custom.module.css";
 import {
   EmblaCarouselType,
   EmblaEventType,
@@ -97,17 +98,17 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   }, [emblaApi, tweenOpacity]);
 
   return (
-    <div className="embla lg:max-w-[1000px] lg:w-full  lg:block hidden ">
-      <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
+    <div className={`${styles.embla} lg:max-w-[1000px] lg:w-full  lg:block hidden `}>
+      <div className={styles.embla__viewport} ref={emblaRef}>
+        <div className={styles.embla__container}>
           {slides.map((data, index) => (
-            <div className="embla__slide h-[550px] " key={index}>
+            <div className={`${styles.embla__slide} h-[550px] `} key={index}>
               <img
-                className="embla__slide__img h-full"
+                className={`${styles.embla__slide__img} h-full`}
                 src={data.imageUrl}
                 alt="Your alt text"
               />
-              <div className="flex flex-col gap-3 content">
+              <div className={`flex flex-col gap-3 ${styles.content}`}>
                 <h1 className="text-3xl font-bold">{data.title}</h1>
                 <p className="w-[400px] text-justify text-sm">{data.desc}</p>
               </div>
@@ -115,15 +116,14 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
           ))}
         </div>
       </div>
+      
 
-      <div className="embla__dots">
+      <div className={styles.embla__dots}>
         {scrollSnaps.map((_, index) => (
           <DotButton
             key={index}
             onClick={() => onDotButtonClick(index)}
-            className={'embla__dot'.concat(
-              index === selectedIndex ? ' embla__dot--selected' : ''
-            )}
+            className={` embla__dot ${index==selectedIndex ? "embla__dot__active":""}`}
           />
         ))}
       </div>

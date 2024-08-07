@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import './customCss.css';
 import EmblaCarousel from './_components/EmblaCarousel';
 // import EmblaCarousel from '../_components/EmblaCarousel';
 export type slidesItemType = {
