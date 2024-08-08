@@ -35,9 +35,9 @@ const page = () => {
   const [loading, setLoading] = useState(false);
   async function handleLogout() {
     setLoading(true);
-    dispatch(clearUser());
     try {
       await account.deleteSession('current');
+      dispatch(clearUser());
       router.push('/');
     } catch (error) {
       console.log(error);
