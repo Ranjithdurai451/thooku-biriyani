@@ -21,9 +21,12 @@ const userSlice = createSlice({
       state.isAuthenticated = false;
       state.userInfo = initialState.userInfo;
     },
+    test(state) {
+      state.isAuthenticated = !state.isAuthenticated;
+    },
   },
 });
 
-export const { setUserInfo, clearUser } = userSlice.actions;
+export const { setUserInfo, clearUser, test } = userSlice.actions;
 
 export default userSlice.reducer;

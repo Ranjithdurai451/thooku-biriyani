@@ -1,4 +1,5 @@
 import React from 'react';
+import RouteProtector from '../_components/RouteProtector';
 
 const page = () => {
   return (
