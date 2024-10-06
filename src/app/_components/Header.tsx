@@ -28,25 +28,18 @@ const Header = () => {
     };
   }, [cart.totalAmount, cart.cartItems.length]);
 
-  useEffect(() => {
-    async function fetchOrders() {
-      const orders = await databases.listDocuments(
-        appwriteConfig.databaseId,
-        appwriteConfig.orderCollectionId
-      );
-    }
+  // useEffect(() => {
 
-    fetchOrders();
-    const storedCart = localStorage.getItem('cart');
-    if (storedCart) {
-      dispatch(setCart(JSON.parse(storedCart)));
-    }
-  }, []);
+  //   const storedCart = localStorage.getItem('cart');
+  //   if (storedCart) {
+  //     dispatch(setCart(JSON.parse(storedCart)));
+  //   }
+  // }, []);
 
-  useEffect(() => {
-    if (cart.cartItems.length == 0) return;
-    localStorage.setItem('cart', JSON.stringify(cart));
-  }, [cart]);
+  // useEffect(() => {
+  //   if (cart.cartItems.length == 0) return;
+  //   localStorage.setItem('cart', JSON.stringify(cart));
+  // }, [cart]);
 
   // useEffect(() => {
   //   let prevscroll = 0;

@@ -19,6 +19,7 @@ const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
     '/dashboard/orders',
     '/dashboard/customers',
     '/dashboard/menus',
+    '/ordersuccess',
   ].includes(pathname);
 
   return (

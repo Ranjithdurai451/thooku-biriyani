@@ -79,7 +79,7 @@ const Checkout = () => {
       return;
     }
 
-    router.push('/dashboard/orders');
+    router.push('/ordersucess');
     setIsLoading(false);
   }
 
