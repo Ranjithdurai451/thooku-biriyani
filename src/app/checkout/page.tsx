@@ -1,29 +1,29 @@
 /* eslint-disable react/jsx-no-undef */
-'use client';
-import { RootState } from '@/Store/store';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+"use client";
+import { RootState } from "@/Store/store";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
-import { useSelector } from 'react-redux';
-import { formatNumberWithCommas } from '@/lib/utils';
-import { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import Link from 'next/link';
-import { placeOrder } from '../../../backend/Actions/serverActions';
-import { useRouter } from 'next/navigation';
-import Image from 'next/image';
+import { useSelector } from "react-redux";
+import { formatNumberWithCommas } from "@/lib/utils";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
+import { placeOrder } from "../../../backend/Actions/serverActions";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 const Checkout = () => {
   const isAuth = useSelector((state: RootState) => state.user.isAuthenticated);
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   if (!isAuth) {
-    router.push('/auth/login');
+    router.push("/auth/login");
   }
 
-  const [errorMsg, setErrMsg] = useState('');
+  const [errorMsg, setErrMsg] = useState("");
 
   const cart = useSelector((state: RootState) => state.cart);
   const user = useSelector((state: RootState) => state.user);
@@ -32,20 +32,20 @@ const Checkout = () => {
   const checkoutSchema = z.object({
     phoneNumber: z
       .string()
-      .min(10, { message: 'Mobile phone number must be at least 10 digits' })
-      .max(15, { message: 'Mobile phone number must be at most 15 digits' }),
+      .min(10, { message: "Mobile phone number must be at least 10 digits" })
+      .max(15, { message: "Mobile phone number must be at most 15 digits" }),
     // country: z.string().optional(),
-    firstName: z.string().nonempty({ message: 'First name is required' }),
-    lastName: z.string().nonempty({ message: 'Last name is required' }),
+    firstName: z.string().nonempty({ message: "First name is required" }),
+    lastName: z.string().nonempty({ message: "Last name is required" }),
     // company: z.string().optional(),
-    address: z.string().nonempty({ message: 'Address is required' }),
+    address: z.string().nonempty({ message: "Address is required" }),
     // apartment: z.string().optional(),
-    city: z.string().nonempty({ message: 'City is required' }),
+    city: z.string().nonempty({ message: "City is required" }),
     // state: z.string().optional(),
     pinCode: z
       .string()
-      .min(5, { message: 'PIN code must be at least 5 digits' })
-      .max(6, { message: 'PIN code must be at most 6 digits' }),
+      .min(5, { message: "PIN code must be at least 5 digits" })
+      .max(6, { message: "PIN code must be at most 6 digits" }),
     // phone: z
     //   .string()
     //   .min(10, { message: 'Phone number must be at least 10 digits' })
@@ -75,11 +75,11 @@ const Checkout = () => {
 
     if (!res) {
       setIsLoading(false);
-      setErrMsg('Could not place order');
+      setErrMsg("Could not place order");
       return;
     }
 
-    router.push('/ordersucess');
+    router.push("/ordersuccess");
     setIsLoading(false);
   }
 
@@ -87,7 +87,7 @@ const Checkout = () => {
     <div className="flex flex-col w-full min-h-dvh text-black bg-white">
       <div className="flex items-baseline justify-between p-4 border-b border-black border-opacity-15">
         <Link href="/" className="ml-2 text-xl font-bold">
-          {' '}
+          {" "}
           Thooku Biriyani
         </Link>
         <Link className="mr-4" href="/cart">
@@ -106,7 +106,7 @@ const Checkout = () => {
                   <p>Order Summary</p>
                   <div
                     className={` duration-300 ${
-                      orderSummaryActive ? ' rotate-90' : ''
+                      orderSummaryActive ? " rotate-90" : ""
                     }`}
                   >
                     <svg
@@ -129,7 +129,7 @@ const Checkout = () => {
 
           <div
             className={`lg:sticky ${
-              orderSummaryActive ? 'h-[85dvh] lg:h-auto' : 'h-0 lg:h-auto'
+              orderSummaryActive ? "h-[85dvh] lg:h-auto" : "h-0 lg:h-auto"
             } w-full max-w-[600px]  top-0 flex flex-col gap-5 lg:py-6 overflow-hidden  transition-[height] duration-500 `}
           >
             <div className="flex flex-col  gap-5 h-[400px] overflow-scroll custom px-2 py-6">
@@ -141,7 +141,7 @@ const Checkout = () => {
                   <div className="flex items-center gap-5">
                     <div className="relative rounded-lg">
                       <Image
-                        src={item?.image_url ?? ''}
+                        src={item?.image_url ?? ""}
                         alt=""
                         width={75}
                         height={55}
@@ -193,7 +193,7 @@ const Checkout = () => {
               <Input
                 type="text"
                 placeholder="  phone number"
-                {...register('phoneNumber')}
+                {...register("phoneNumber")}
               />
               {errors.phoneNumber && (
                 <p className="text-sm text-red-500">
@@ -228,7 +228,7 @@ const Checkout = () => {
                   <Input
                     id="first-name"
                     placeholder="First name"
-                    {...register('firstName')}
+                    {...register("firstName")}
                   />
                   {errors.firstName && (
                     <p className="text-sm text-red-500">
@@ -241,7 +241,7 @@ const Checkout = () => {
                   <Input
                     id="last-name"
                     placeholder="Last name"
-                    {...register('lastName')}
+                    {...register("lastName")}
                   />
                   {errors.lastName && (
                     <p className="text-sm text-red-500">
@@ -268,7 +268,7 @@ const Checkout = () => {
                 <Input
                   id="address"
                   placeholder="Address"
-                  {...register('address')}
+                  {...register("address")}
                 />
                 {errors.address && (
                   <p className="text-sm text-red-500">
@@ -294,7 +294,7 @@ const Checkout = () => {
               <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
                 <div className="space-y-2">
                   <Label htmlFor="city">City</Label>
-                  <Input id="city" placeholder="City" {...register('city')} />
+                  <Input id="city" placeholder="City" {...register("city")} />
                 </div>
                 {/* <div className="space-y-2">
                   <Label htmlFor="state">State</Label>
@@ -322,7 +322,7 @@ const Checkout = () => {
                   <Input
                     id="pin-code"
                     placeholder="PIN code"
-                    {...register('pinCode')}
+                    {...register("pinCode")}
                   />
                   {errors.pinCode && (
                     <p className="text-sm text-red-500">
@@ -349,8 +349,8 @@ const Checkout = () => {
             <div className="flex flex-col gap-4 p-4 bg-white border-t border-b border-black lg:py-0 lg:gap-0 border-opacity-15 sm:border-none">
               <div className="flex items-center justify-between lg:hidden">
                 <div className="text-xl ">
-                  {' '}
-                  Order summary {'(' + cart.totalItems + ')'}
+                  {" "}
+                  Order summary {"(" + cart.totalItems + ")"}
                 </div>
                 {/* <button className="text-[#1773b0]">show</button> */}
               </div>
@@ -370,7 +370,7 @@ const Checkout = () => {
               <div className="flex items-center justify-between lg:hidden">
                 <h1 className="text-xl">Total</h1>
                 <div className="text-sm font-light">
-                  INR{' '}
+                  INR{" "}
                   <span className="text-xl font-semibold">
                     ₹{formatNumberWithCommas(cart.totalAmount)}
                   </span>
@@ -379,9 +379,9 @@ const Checkout = () => {
 
               <Button
                 className="bg-[#1773b0] hover:bg-[#1773b0] text-white "
-                size={'lg'}
+                size={"lg"}
               >
-                {isLoading ? 'placing order...' : 'Place order'}
+                {isLoading ? "placing order..." : "Place order"}
               </Button>
 
               <div className="pt-4 font-light border-t border-black border-opacity-15 sm:border-none">
