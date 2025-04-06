@@ -1,7 +1,7 @@
-import OrdersTable from './_components/OrdersTable';
-import { fetchOrders } from '../../../../backend/Actions/actions';
-import OrderDetail from './_components/OrderDetail';
-import { cartItemType } from '@/lib/types';
+import OrdersTable from "./_components/OrdersTable";
+import { fetchOrders } from "../../../../backend/Actions/actions";
+import OrderDetail from "./_components/OrderDetail";
+import { cartItemType } from "@/lib/types";
 
 export type orderType = {
   id: string;
@@ -30,15 +30,15 @@ const page = async () => {
       cartItems: JSON.parse(order?.cartItems),
       phoneNumber: order.phoneNumber,
       address: order.address,
-      name: order.user.username,
-      email: order.user.email,
-      profileImg: order.user.profileImg,
-      role: order.user.role,
+      name: order.user?.username,
+      email: order.user?.email,
+      profileImg: order.user?.profileImg,
+      role: order.user?.role,
       status: order.status,
     };
   });
 
-  console.log('ISR completed for this render.'); // Log when ISR completes for this render
+  console.log("ISR completed for this render."); // Log when ISR completes for this render
 
   return (
     <main className="flex flex-col xl:flex-row gap-5">

@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import React from 'react';
+import Link from "next/link";
+import React from "react";
 
 const page = () => {
   const dots = [
@@ -88,7 +88,7 @@ const page = () => {
             View Orders
           </Link>
           <Link
-            href={'/menu'}
+            href={"/menu"}
             className=" px-8 py-3 rounded font-semibold bg-customGreen text-white hover:bg-green-600 duration-300"
           >
             Continue Shopping
