@@ -1,155 +1,159 @@
-# Thooku Biriyani 🍛
+# Thooku Biriyani
 
-A modern, full-stack restaurant web application for ordering delicious biriyani and more. Fast, beautiful, and built for both customers and admins.
+<div align="center">
+  <img src="public/thooku_biryani_favicon.jpg" alt="Thooku Biriyani Logo" width="120" style="border-radius: 10px;"/>
+  
+  <h2>Modern Restaurant Web Application</h2>
 
-<p align="center">
-  <a href="https://thooku-biriyani.vercel.app" target="_blank"><img src="https://img.shields.io/badge/Live%20Demo-Vercel-brightgreen?style=for-the-badge&logo=vercel" alt="Live Demo"></a>
-  <img src="https://img.shields.io/badge/Next.js-13+-black?style=for-the-badge&logo=next.js" alt="Next.js">
-  <img src="https://img.shields.io/badge/TailwindCSS-2.0+-blue?style=for-the-badge&logo=tailwind-css" alt="Tailwind CSS">
-  <img src="https://img.shields.io/badge/Redux-Toolkit-purple?style=for-the-badge&logo=redux" alt="Redux">
-  <img src="https://img.shields.io/badge/TypeScript-4+-3178c6?style=for-the-badge&logo=typescript" alt="TypeScript">
-  <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="MIT License">
-</p>
+  [![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-brightgreen?style=for-the-badge&logo=vercel)](https://thooku-biriyani.vercel.app)
+  ![Next.js](https://img.shields.io/badge/Next.js-13+-black?style=for-the-badge&logo=next.js)
+  ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-2.0+-blue?style=for-the-badge&logo=tailwind-css)
+  ![Redux](https://img.shields.io/badge/Redux-Toolkit-purple?style=for-the-badge&logo=redux)
+  ![TypeScript](https://img.shields.io/badge/TypeScript-4+-3178c6?style=for-the-badge&logo=typescript)
+</div>
 
----
+## Overview
 
-## 🚀 Live Demo
+Thooku Biriyani is a full-stack restaurant application that enables customers to browse menus, place orders, and track deliveries. The admin dashboard provides comprehensive order management, menu customization, and customer insights.
 
-👉 [**thooku-biriyani.vercel.app**](https://thooku-biriyani.vercel.app)
+🔗 **[Live Demo](https://thooku-biriyani.vercel.app)**
 
----
+## Key Features
 
-## 📋 Table of Contents
+- **Customer Portal**
+  - Browse menu items by category
+  - Real-time cart management
+  - Secure checkout process
+  - Order tracking
+  - User authentication
+  - Customer testimonials
 
-- [About](#about)
-- [Features](#features)
-- [Screenshots](#screenshots)
-- [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-- [Folder Structure](#folder-structure)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+- **Admin Dashboard**
+  - Order management system
+  - Menu item customization
+  - Customer database
+  - Sales analytics
+  - Order status updates
 
----
+- **Technical Features**
+  - Responsive design (mobile-first)
+  - Server-side rendering
+  - Redux state management
+  - Protected routes
+  - Dark/Light theme support
 
-## 📝 About
+## Tech Stack
 
-**Thooku Biriyani** is a full-featured restaurant web app for customers to browse the menu, add items to their cart, checkout, and for admins to manage orders, menus, and customers. Built with modern technologies for a seamless, responsive experience.
+- **Frontend**
+  - Next.js 13+ (App Router)
+  - React 18
+  - TypeScript
+  - Redux Toolkit
+  - TailwindCSS
 
----
+- **Backend**
+  - NextAuth.js
+  - Server Actions
+  - Bun Runtime
 
-## ✨ Features
+- **Development**
+  - ESLint
+  - PostCSS
+  - TypeScript
+  - Git
 
-- 🛒 **Menu Browsing & Cart:** Explore categories, view menu items, and add to cart
-- 🧾 **Checkout Flow:** Seamless checkout and order success page
-- 👤 **User Authentication:** Signup, login, and protected routes
-- 🧑‍💼 **Dashboard:** Admin/user dashboard for managing orders, menus, and customers
-- 💬 **Testimonials:** Customer reviews and testimonials section
-- 📱 **Responsive Design:** Mobile and desktop layouts
-- 🎨 **Custom UI Components:** Consistent, reusable design system
-- 🌗 **Theming:** Light/dark mode support
+## Project Structure
 
----
+\`\`\`
+thooku-biriyani/
+├── backend/
+│   ├── Actions/
+│   │   ├── actions.ts         # Server-side actions
+│   │   └── serverActions.ts   # API endpoints
+│   └── config.ts             # Backend configuration
+├── public/                   # Static assets
+│   ├── icons/               # SVG icons
+│   └── images/              # Image assets
+├── src/
+│   ├── app/
+│   │   ├── _components/      # Shared components
+│   │   │   ├── Testimony/    # Testimonial components
+│   │   │   ├── AboutSection.tsx
+│   │   │   ├── CartModal.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   ├── Header.tsx
+│   │   │   └── ...
+│   │   ├── account/         # User account pages
+│   │   ├── auth/           # Authentication pages
+│   │   ├── cart/           # Shopping cart
+│   │   ├── checkout/       # Checkout process
+│   │   ├── dashboard/      # Admin dashboard
+│   │   │   ├── _components/
+│   │   │   ├── customers/
+│   │   │   ├── menus/
+│   │   │   └── orders/
+│   │   ├── menu/           # Menu pages
+│   │   └── layout.tsx      # Root layout
+│   ├── components/
+│   │   └── ui/            # Reusable UI components
+│   ├── lib/
+│   │   ├── types.ts       # TypeScript definitions
+│   │   └── utils.ts       # Utility functions
+│   └── Store/
+│       ├── Slices/        # Redux slices
+│       └── store.ts       # Redux store configuration
+├── package.json
+├── tailwind.config.ts
+└── tsconfig.json
+\`\`\`
 
-## 🖼️ Screenshots
+## Screenshots
 
-> _Add your screenshots here!_
->
-> ![Home Page](public/slideone.jpg)
-> ![Menu Section](public/chicken_combo.jpg)
+<div align="center">
+  <img src="public/slideone.jpg" alt="Homepage" width="600"/>
+  <p><em>Homepage with Featured Items</em></p>
+  
+  <img src="public/chicken_combo.jpg" alt="Menu Item" width="600"/>
+  <p><em>Menu Item Detail View</em></p>
+</div>
 
----
+## Getting Started
 
-## 🛠️ Tech Stack
-
-- **Frontend:** [Next.js](https://nextjs.org/) (App Router), [React](https://react.dev/), [TypeScript](https://www.typescriptlang.org/)
-- **Styling:** [Tailwind CSS](https://tailwindcss.com/), [PostCSS](https://postcss.org/)
-- **State Management:** [Redux Toolkit](https://redux-toolkit.js.org/)
-- **Backend:** Node.js or Bun (see `bun.lockb`)
-- **Deployment:** [Vercel](https://vercel.com/)
-
----
-
-## 🚦 Getting Started
-
-1. **Clone the repository:**
+1. **Clone and Install:**
    ```bash
-   git clone https://github.com/yourusername/thooku-biriyani.git
+   git clone <repository-url>
    cd thooku-biriyani
+   npm install   # or: yarn install / pnpm install / bun install
    ```
 
-2. **Install dependencies:**
+2. **Development:**
    ```bash
-   npm install
-   # or
-yarn install
-   # or
-pnpm install
-   # or
-bun install
+   npm run dev   # or: yarn dev / pnpm dev / bun dev
    ```
+   Open [http://localhost:3000](http://localhost:3000)
 
-3. **Run the development server:**
-   ```bash
-   npm run dev
-   # or
-yarn dev
-   # or
-pnpm dev
-   # or
-bun dev
-   ```
-
-4. **Open your browser:**
-   Visit [http://localhost:3000](http://localhost:3000)
-
-5. **Build for production:**
+3. **Production Build:**
    ```bash
    npm run build
-   # or
-yarn build
-   # or
-pnpm build
-   # or
-bun build
+   npm start
    ```
 
----
+## Environment Variables
 
-## 📁 Folder Structure
+Create a `.env.local` file:
 
-```
-backend/           # Backend actions and config
-public/            # Static assets (images, icons)
-src/
-  app/             # Main app directory (pages, layouts, components)
-  components/ui/   # Custom UI components
-  Store/           # Redux store and slices
+```env
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your-secret-key
+# Add other environment variables
 ```
 
----
+## License
 
-## 🤝 Contributing
-
-Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/YourFeature`)
-3. Commit your changes (`git commit -m 'Add some feature'`)
-4. Push to the branch (`git push origin feature/YourFeature`)
-5. Open a Pull Request
+MIT License - feel free to use this project for your own purposes.
 
 ---
 
-## 📄 License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-## 📬 Contact
-
-For questions, feedback, or support, please contact [your-email@example.com](mailto:your-email@example.com).
-
-> Built with ❤️ for Thooku Biriyani
+<div align="center">
+  <p>Developed by <a href="https://github.com/yourusername">Your Name</a></p>
+</div>
