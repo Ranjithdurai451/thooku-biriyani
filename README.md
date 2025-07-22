@@ -64,7 +64,7 @@ Thooku Biriyani is a full-stack restaurant application that enables customers to
 
 ## Project Structure
 
-\`\`\`
+```
 thooku-biriyani/
 ├── backend/
 │   ├── Actions/
@@ -105,17 +105,7 @@ thooku-biriyani/
 ├── package.json
 ├── tailwind.config.ts
 └── tsconfig.json
-\`\`\`
-
-## Screenshots
-
-<div align="center">
-  <img src="public/slideone.jpg" alt="Homepage" width="600"/>
-  <p><em>Homepage with Featured Items</em></p>
-  
-  <img src="public/chicken_combo.jpg" alt="Menu Item" width="600"/>
-  <p><em>Menu Item Detail View</em></p>
-</div>
+```
 
 ## Getting Started
 
